@@ -1,1 +1,542 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f3d5e">
+  <title>中級 AI 技術應用與規劃｜iPAS AI 應用規劃師</title>
 
+  <style>
+    :root {
+      --navy: #0f3d5e;
+      --blue: #176b87;
+      --sky: #e8f4f8;
+      --gold: #f3b33d;
+      --ink: #17212b;
+      --muted: #52616b;
+      --line: #d7e2e8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f8fa;
+      color: var(--ink);
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont,
+        "PingFang TC", "Noto Sans TC", sans-serif;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      padding: 38px 20px 30px;
+    }
+
+    header > div,
+    main {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 6vw, 42px);
+      line-height: 1.25;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 25px;
+      line-height: 1.35;
+      margin: 0 0 14px;
+    }
+
+    h3 {
+      color: var(--blue);
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      overflow-x: auto;
+      white-space: nowrap;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 12px;
+    }
+
+    nav a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      padding: 7px 9px;
+    }
+
+    main {
+      padding: 22px 16px 48px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(20, 48, 63, 0.04);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .notice {
+      background: #fff8e8;
+      border-left: 5px solid var(--gold);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 6px 0 0;
+      padding: 4px 11px;
+      border: 1px solid #ffffff55;
+      border-radius: 99px;
+      background: #ffffff20;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 4px 4px 0 0;
+      padding: 9px 12px;
+      background: var(--navy);
+      border-radius: 9px;
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    .flow-step {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-step:last-child {
+      border-bottom: 0;
+    }
+
+    .flow-step b {
+      color: var(--blue);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 12px 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 660px;
+      border-collapse: collapse;
+      background: var(--white);
+    }
+
+    th,
+    td {
+      padding: 11px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    .check label {
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .check input {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+      vertical-align: -3px;
+    }
+
+    footer {
+      padding: 22px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>中級科目 1<br>人工智慧技術應用與規劃</h1>
+      <p>從企業需求出發，完成資料、技術、評估、治理到上線維運的 AI 導入決策。</p>
+      <span class="tag">中級必考</span>
+      <span class="tag">情境題</span>
+      <span class="tag">技術選型</span>
+      <span class="tag">治理與風險</span>
+    </div>
+  </header>
+
+  <nav>
+    <a href="../index.html">首頁</a>
+    <a href="#map">範圍地圖</a>
+    <a href="#decision">決策流程</a>
+    <a href="#tech">技術選型</a>
+    <a href="#evaluation">導入評估</a>
+    <a href="#governance">治理風險</a>
+    <a href="#feynman">費曼卡</a>
+    <a href="#practice">刷題</a>
+    <a href="#official">官方資源</a>
+  </nav>
+
+  <main>
+    <div class="notice">
+      <b>考場核心：</b>
+      不要先看到 AI 名詞就選模型。先釐清企業要解決的問題、可取得的資料、成功標準、
+      導入限制與風險，再選合適技術。最好的方案不一定是最複雜的模型，而是能安全、
+      可衡量、可維運且符合需求的方案。
+    </div>
+
+    <section id="map">
+      <h2>科目範圍地圖</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>需求與問題定義</h3>
+          <p>辨識利害關係人、業務痛點、使用者情境、成功條件、限制與可衡量 KPI。</p>
+        </article>
+
+        <article class="card">
+          <h3>資料與可行性</h3>
+          <p>確認資料來源、品質、標註、代表性、隱私、授權與資料治理是否足以支撐需求。</p>
+        </article>
+
+        <article class="card">
+          <h3>AI 技術選型</h3>
+          <p>依任務選擇預測、分類、分群、自然語言處理、電腦視覺、生成式 AI、RAG 或規則系統。</p>
+        </article>
+
+        <article class="card">
+          <h3>開發與驗證</h3>
+          <p>資料切分、基準模型、評估指標、PoC、使用者測試、偏誤檢查與可解釋性。</p>
+        </article>
+
+        <article class="card">
+          <h3>部署與維運</h3>
+          <p>系統整合、版本管理、權限、效能、監控、漂移偵測、再訓練與回退機制。</p>
+        </article>
+
+        <article class="card">
+          <h3>治理與風險</h3>
+          <p>個資、資安、著作權、偏誤、公平性、透明性、人類監督、責任歸屬與稽核。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="decision">
+      <h2>AI 導入決策流程</h2>
+
+      <div class="card">
+        <div class="flow-step">
+          <b>1｜定義業務問題</b><br>
+          先寫清楚「誰遇到什麼問題、要改善什麼、改善多少算成功」。
+          例如：客服回覆慢，不等於立刻導入聊天機器人；還要定義回覆時間、正確率、轉人工率與客戶滿意度。
+        </div>
+
+        <div class="flow-step">
+          <b>2｜確認資料與限制</b><br>
+          檢查是否有足夠、合法、具代表性的資料，以及資料是否能連續更新。
+          同時確認預算、時程、資安、法規、既有系統與人力限制。
+        </div>
+
+        <div class="flow-step">
+          <b>3｜評估非 AI 與 AI 方案</b><br>
+          先考慮流程改善、搜尋、規則引擎或人工標準化是否已足夠；
+          只有在 AI 能帶來明確效益時，才進一步選擇合適模型。
+        </div>
+
+        <div class="flow-step">
+          <b>4｜選技術與設計 PoC</b><br>
+          把問題對應到分類、迴歸、分群、NLP、電腦視覺、生成式 AI 或 RAG；
+          以小規模驗證 PoC 檢驗資料、模型與使用流程是否可行。
+        </div>
+
+        <div class="flow-step">
+          <b>5｜設定成效指標</b><br>
+          技術指標不夠，還要有業務指標與風險指標。
+          例如客服系統可同時衡量回答正確率、平均處理時間、人工轉接率、申訴率與敏感資訊外洩事件。
+        </div>
+
+        <div class="flow-step">
+          <b>6｜部署、監控與治理</b><br>
+          規劃模型版本、權限、日誌、監控告警、人工覆核、再訓練、異常回退與責任窗口。
+        </div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <h2>情境到技術的選擇</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>情境線索</th>
+              <th>優先技術方向</th>
+              <th>選擇理由</th>
+              <th>常見風險或補充</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>依歷史案件預測是否違約</td>
+              <td>監督式分類</td>
+              <td>有過去標籤，可預測新案件的類別。</td>
+              <td>注意類別不平衡、偏誤與漏判成本。</td>
+            </tr>
+
+            <tr>
+              <td>預測下個月銷售額</td>
+              <td>迴歸或時間序列預測</td>
+              <td>目標是連續數值，且可能具有時間趨勢。</td>
+              <td>避免用未來資料造成資料洩漏。</td>
+            </tr>
+
+            <tr>
+              <td>將客戶依行為分成族群</td>
+              <td>非監督式分群</td>
+              <td>通常沒有既定標籤，目標是發現相似群體。</td>
+              <td>分群後需要業務人員驗證群體是否有意義。</td>
+            </tr>
+
+            <tr>
+              <td>從合約、客服紀錄擷取主題或問答</td>
+              <td>NLP、LLM、RAG</td>
+              <td>資料主要是文字，需要理解、分類、摘要或檢索。</td>
+              <td>注意幻覺、敏感資料、來源品質與人工覆核。</td>
+            </tr>
+
+            <tr>
+              <td>辨識產品瑕疵、讀取影像內容</td>
+              <td>電腦視覺</td>
+              <td>輸入資料是影像，目標是分類、偵測或分割。</td>
+              <td>注意光線、角度、樣本代表性與誤判成本。</td>
+            </tr>
+
+            <tr>
+              <td>依內部文件回答員工問題</td>
+              <td>檢索增強生成 RAG</td>
+              <td>需要以公司文件為依據回答，並希望降低憑空生成。</td>
+              <td>仍要檢查文件是否更新、權限是否正確與回答是否有引用依據。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="evaluation">
+      <h2>PoC 與導入成效評估</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>技術可行性</h3>
+          <p>資料品質是否足夠？模型是否達到最低門檻？延遲、成本與系統相容性是否可接受？</p>
+        </article>
+
+        <article class="card">
+          <h3>業務價值</h3>
+          <p>是否能降低工時、錯誤或成本？是否改善營收、轉換率、服務品質或決策速度？</p>
+        </article>
+
+        <article class="card">
+          <h3>使用者採納</h3>
+          <p>使用者是否理解建議？流程是否增加負擔？人員是否能在高風險情境中覆核或拒絕模型建議？</p>
+        </article>
+
+        <article class="card">
+          <h3>風險可接受性</h3>
+          <p>隱私、資安、偏誤、著作權與錯誤決策風險是否已被辨識、降低、監測並建立責任機制？</p>
+        </article>
+      </div>
+
+      <details>
+        <summary>例題思路：模型準確率高，為什麼仍可能不適合上線？</summary>
+        <p>因為準確率不能代表所有事情：資料可能不具代表性、模型可能對特定族群不公平、推論速度可能太慢、誤判成本可能很高，也可能涉及個資或缺少人工覆核。題目若問「是否可上線」，要同時看技術、業務、使用者與治理風險。</p>
+      </details>
+    </section>
+
+    <section id="governance">
+      <h2>AI 治理與風險速查</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>隱私與個資</h3>
+          <p>只蒐集必要資料；確認目的、權限、保存期間與第三方處理方式；避免把敏感資料直接送入未核准的外部模型。</p>
+        </article>
+
+        <article class="card">
+          <h3>偏誤與公平性</h3>
+          <p>檢查訓練資料是否忽略某些族群、標註是否帶偏見，以及模型結果是否造成不合理差別待遇。</p>
+        </article>
+
+        <article class="card">
+          <h3>透明與可解釋</h3>
+          <p>讓使用者知道何時正在與 AI 互動；在高風險決策中提供可理解的理由、資料來源或人工申覆管道。</p>
+        </article>
+
+        <article class="card">
+          <h3>資安與對抗風險</h3>
+          <p>管理帳號權限、API 金鑰、輸入輸出日誌與異常行為；生成式 AI 要特別防範提示注入與敏感資訊外洩。</p>
+        </article>
+
+        <article class="card">
+          <h3>人類監督</h3>
+          <p>高風險決策不宜完全自動化；設定人工覆核、升級處理、例外機制與停用／回退流程。</p>
+        </article>
+
+        <article class="card">
+          <h3>模型生命週期</h3>
+          <p>記錄資料與模型版本、部署時間、效能與異常；監控資料漂移和概念漂移，必要時再訓練或下線。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="feynman">
+      <h2>費曼教學卡：用白話講出決策</h2>
+
+      <details>
+        <summary>PoC 是什麼？為什麼不能直接全面上線？</summary>
+        <p><b>白話：</b>PoC 是小範圍試做，用較低成本確認「這個想法能不能做、資料夠不夠、效果值不值得」。</p>
+        <p><b>原因：</b>全面上線會牽涉更多使用者、系統整合、資安、成本與錯誤影響；先做 PoC 可提早發現資料、流程與風險問題。</p>
+      </details>
+
+      <details>
+        <summary>RAG 與微調怎麼區分？</summary>
+        <p><b>RAG：</b>回答前先從文件庫找相關內容，再依找到的內容生成答案；適合知識常更新、需要引用內部文件的情境。</p>
+        <p><b>微調：</b>調整模型參數，使模型更符合特定任務、風格或格式；通常需要品質較高的訓練資料與更完整的評估。</p>
+        <p><b>考場判斷：</b>題目若強調「最新內部文件、檢索、引用來源」，優先想到 RAG。</p>
+      </details>
+
+      <details>
+        <summary>資料漂移與概念漂移差在哪裡？</summary>
+        <p><b>資料漂移：</b>輸入資料的分布改變，例如客戶年齡、購買通路或影像拍攝環境改變。</p>
+        <p><b>概念漂移：</b>輸入與答案之間的關係改變，例如詐欺手法改變，原本的規則不再有效。</p>
+        <p><b>共同對策：</b>持續監控、重新評估、必要時更新資料與再訓練模型。</p>
+      </details>
+
+      <details>
+        <summary>為什麼「最準的模型」不一定是最佳方案？</summary>
+        <p>因為實務還要考慮可解釋性、運算成本、反應時間、維護能力、資料取得、法規、使用者信任與錯誤造成的傷害。合適的方案必須在效能、風險與可行性間取得平衡。</p>
+      </details>
+    </section>
+
+    <section id="practice">
+      <h2>情境題刷題方法</h2>
+
+      <div class="card">
+        <ol>
+          <li><b>圈出目標：</b>要預測、分類、分群、擷取資訊、生成內容，還是最佳化流程？</li>
+          <li><b>圈出資料：</b>資料型態是表格、文字、影像還是文件？有沒有標籤？是否合法、完整、具代表性？</li>
+          <li><b>圈出限制：</b>是否要求即時、低成本、可解釋、保護個資、人工覆核或使用內部資料？</li>
+          <li><b>選技術：</b>選最能回應目標與限制的方案，而不是最熱門的技術。</li>
+          <li><b>選指標與治理：</b>依錯誤成本選評估指標，補上監控、權限、人類監督與風險控制。</li>
+        </ol>
+      </div>
+
+      <div class="card check" style="margin-top:14px">
+        <h3>今日最小任務</h3>
+        <label><input type="checkbox">用「需求 → 資料 → 技術 → 指標 → 風險」分析一個 AI 應用案例</label>
+        <label><input type="checkbox">完成 10 至 15 題中級科目 1 題目，逐題寫出排除其他選項的理由</label>
+        <label><input type="checkbox">將 3 個易混淆概念寫成費曼教學卡並閉卷口述</label>
+        <label><input type="checkbox">閱讀官方學習指引或公告試題，更新自己的錯題紀錄</label>
+      </div>
+    </section>
+
+    <section id="official">
+      <h2>官方資源</h2>
+
+      <div class="card">
+        <p>
+          此頁為個人備考整理。考試規則、評鑑範圍、日期、學習指引與勘誤，
+          請一律以 iPAS 官方最新資料為準。
+        </p>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
+          target="_blank" rel="noopener">
+          學習指引、樣題、公告試題
+        </a>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads"
+          target="_blank" rel="noopener">
+          簡章與評鑑內容範圍
+        </a>
+
+        <a class="btn alt"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news"
+          target="_blank" rel="noopener">
+          最新消息與勘誤
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    iPAS AI 應用規劃師｜中級科目 1：人工智慧技術應用與規劃
+  </footer>
+</body>
+</html>

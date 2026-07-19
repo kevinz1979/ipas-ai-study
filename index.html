@@ -142,4 +142,578 @@
       opacity: 0.96;
     }
 
-    
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 22px;
+      padding: 4px 0;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    main {
+      padding: 26px 16px 56px;
+    }
+
+    section {
+      margin-top: 38px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .notice {
+      padding: 15px 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      background: var(--danger-bg);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .exam-date {
+      margin: 6px 0 10px;
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .label {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--sky);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin-top: auto;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    .btn.alt:hover {
+      background: #d5edf4;
+      color: var(--navy);
+    }
+
+    .study-path {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .path-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .path-row:last-child {
+      border-bottom: 0;
+    }
+
+    .path-week {
+      color: var(--blue-dark);
+      font-weight: 850;
+    }
+
+    .path-row p {
+      margin: 0;
+    }
+
+    .feynman {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .feynman-step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 9px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 850;
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: var(--success);
+    }
+
+    .resource-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .resource-list li {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .resource-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .resource-list a {
+      font-weight: 800;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+
+      .path-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">iPAS 備考站</a>
+
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">首頁</a>
+        <a href="pages/beginner-ai-basics.html">初級 AI 基礎</a>
+        <a href="pages/beginner-generative-ai.html">初級生成式 AI</a>
+        <a href="pages/intermediate-ai-planning.html">中級技術規劃</a>
+        <a href="pages/intermediate-machine-learning.html">中級機器學習</a>
+        <a href="pages/resources.html">官方資源</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>iPAS AI 應用規劃師<br>初級＋中級備考站</h1>
+
+      <p>
+        以費曼學習法準備初級兩科，以及中級「人工智慧技術應用與規劃」
+        與「機器學習技術與應用」。目標不是只背答案，而是能用白話說明、
+        看懂情境並選出合理的技術方案。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">iPad 友善</span>
+        <span class="tag">初級兩科</span>
+        <span class="tag">中級：機器學習方向</span>
+        <span class="tag">費曼學習法</span>
+      </div>
+
+      <nav class="section-nav" aria-label="首頁章節">
+        <a href="#schedule">考試時程</a>
+        <a href="#subjects">考科入口</a>
+        <a href="#plan">讀書規劃</a>
+        <a href="#feynman">費曼學習法</a>
+        <a href="#today">今日任務</a>
+        <a href="#official">官方連結</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="schedule">
+      <h2>考試時程與策略</h2>
+
+      <div class="notice">
+        <b>重要日期：</b>
+        初級第 4 梯考試日為 <b>11/7（六）</b>；中級第 2 梯考試日為
+        <b>11/14（六）</b>。因此備考策略是：11/7 前以初級為主並維持中級手感；
+        11/8 起全力轉入中級複習、錯題整理與模擬題。考試規則與報名狀態請以官方最新公告為準。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <span class="label">初級第 4 梯</span>
+          <div class="exam-date">11 / 7</div>
+          <h3>先穩住基礎</h3>
+          <p>
+            集中處理人工智慧基礎概論與生成式 AI 應用規劃；
+            以觀念理解、情境判讀、風險治理和公告試題整理為核心。
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="label">中級第 2 梯</span>
+          <div class="exam-date">11 / 14</div>
+          <h3>你的中級組合</h3>
+          <p>
+            科目 1：人工智慧技術應用與規劃；科目 3：機器學習技術與應用。
+            重點在需求、資料、技術選型、模型評估與治理。
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="label">讀書比例</span>
+          <div class="exam-date">70 / 30</div>
+          <h3>考前調配</h3>
+          <p>
+            11/7 前：初級 70%、中級 30%。11/8 起：中級 100%，
+            以科目 1 情境題、科目 3 機器學習與程式判讀為主。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="subjects">
+      <h2>四個考科入口</h2>
+
+      <div class="grid">
+        <article class="card">
+          <span class="label">初級科目 1</span>
+          <h3>人工智慧基礎概論</h3>
+          <p>
+            從資料、機器學習、AI 類型、常見應用、倫理與治理建立基礎。
+            目標是能分辨概念，也能用生活例子解釋。
+          </p>
+          <a class="btn" href="pages/beginner-ai-basics.html">開始初級 AI 基礎</a>
+        </article>
+
+        <article class="card">
+          <span class="label">初級科目 2</span>
+          <h3>生成式 AI 應用與規劃</h3>
+          <p>
+            學習生成式 AI、LLM、提示設計、RAG、幻覺、偏誤、
+            個資與著作權等安全應用觀念。
+          </p>
+          <a class="btn" href="pages/beginner-generative-ai.html">開始初級生成式 AI</a>
+        </article>
+
+        <article class="card">
+          <span class="label">中級科目 1・必考</span>
+          <h3>人工智慧技術應用與規劃</h3>
+          <p>
+            從企業問題、資料可行性、技術選型、PoC、成效指標，
+            到導入、治理與維運，練習完整決策思路。
+          </p>
+          <a class="btn" href="pages/intermediate-ai-planning.html">開始中級技術規劃</a>
+        </article>
+
+        <article class="card">
+          <span class="label">中級科目 3・你的方向</span>
+          <h3>機器學習技術與應用</h3>
+          <p>
+            聚焦資料前處理、監督與非監督學習、模型選擇、評估指標、
+            過擬合、交叉驗證、部署監控與程式判讀。
+          </p>
+          <a class="btn" href="pages/intermediate-machine-learning.html">開始中級機器學習</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="plan">
+      <h2>備考主線</h2>
+
+      <div class="card study-path">
+        <div class="path-row">
+          <div class="path-week">現在至第 4 週<br>建立地圖</div>
+          <p>
+            下載官方簡章、學習指引、勘誤與公告試題；先做一次題目診斷。
+            將每個不會的概念寫成問題，例如「Precision 和 Recall 到底差在哪裡？」
+          </p>
+        </div>
+
+        <div class="path-row">
+          <div class="path-week">第 5 至 8 週<br>初級打底</div>
+          <p>
+            完成初級兩科的概念地圖：資料、機器學習、生成式 AI、提示設計、
+            RAG、幻覺、偏誤、個資與著作權。每天至少完成 3 張費曼教學卡。
+          </p>
+        </div>
+
+        <div class="path-row">
+          <div class="path-week">第 9 至 12 週<br>中級深化</div>
+          <p>
+            中級科目 1 練習「需求 → 資料 → 技術 → 指標 → 治理」；
+            科目 3 練習「資料處理 → 模型 → 評估 → 過擬合 → 部署」。
+          </p>
+        </div>
+
+        <div class="path-row">
+          <div class="path-week">考前 2 週<br>題目整合</div>
+          <p>
+            以官方公告試題與錯題本為主，不只記答案。每題都要寫出：
+            為什麼正確、其他選項錯在哪裡、如何用白話解釋。
+          </p>
+        </div>
+
+        <div class="path-row">
+          <div class="path-week">11/8 至 11/14<br>衝刺中級</div>
+          <p>
+            初級考後立刻切換中級。優先複習機器學習評估指標、模型選擇、
+            資料處理、程式判讀，以及 AI 導入情境題與治理風險。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="feynman">
+      <h2>費曼學習法：把概念教給自己</h2>
+
+      <div class="feynman">
+        <article class="feynman-step">
+          <div class="step-number">1</div>
+          <h3>選一個概念</h3>
+          <p>例如：過擬合、RAG、Recall、資料漂移或 PoC。一次只處理一個概念。</p>
+        </article>
+
+        <article class="feynman-step">
+          <div class="step-number">2</div>
+          <h3>用白話解釋</h3>
+          <p>不看資料，用 60 秒解釋給沒有 AI 背景的人聽；避免只丟術語。</p>
+        </article>
+
+        <article class="feynman-step">
+          <div class="step-number">3</div>
+          <h3>找出卡點</h3>
+          <p>講不出來、分不清相近概念或無法舉例，就是要回學習指引補強的缺口。</p>
+        </article>
+
+        <article class="feynman-step">
+          <div class="step-number">4</div>
+          <h3>做成教學卡</h3>
+          <p>寫下「一句定義、生活例子、何時使用、容易混淆概念」，隔天閉卷再講一次。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="today">
+      <h2>今日最小任務</h2>
+
+      <div class="checklist">
+        <label>
+          <input type="checkbox">
+          閱讀一段官方學習指引，挑出一個概念並用自己的話講 60 秒
+        </label>
+
+        <label>
+          <input type="checkbox">
+          完成 15 至 25 題練習題；每題至少寫一句選擇或排除理由
+        </label>
+
+        <label>
+          <input type="checkbox">
+          整理 3 題錯題，記錄錯因、正確規則、反例與下次複習日
+        </label>
+
+        <label>
+          <input type="checkbox">
+          複習昨天的費曼教學卡，不看筆記重新口述
+        </label>
+
+        <label>
+          <input type="checkbox">
+          查看官方最新消息，確認是否有學習指引勘誤、試題或考試公告更新
+        </label>
+      </div>
+    </section>
+
+    <section id="official">
+      <h2>官方資料與公告試題</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>考試資訊與報名</h3>
+          <p>確認考試日期、報名規定、考區與最新鑑定資訊。</p>
+          <a class="btn" href="https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info" target="_blank" rel="noopener">
+            開啟官方考試資訊
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>學習指引與公告試題</h3>
+          <p>下載初級兩科、中級科目 1 與科目 3 的學習指引、勘誤與歷屆公告試題。</p>
+          <a class="btn" href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources" target="_blank" rel="noopener">
+            開啟官方學習資源
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>簡章與範圍</h3>
+          <p>保存 115 年度簡章與評鑑內容範圍；日期、資格與考試規則以官方檔案為準。</p>
+          <a class="btn" href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads" target="_blank" rel="noopener">
+            開啟官方檔案下載
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>最新消息</h3>
+          <p>每週至少查看一次，留意勘誤、公告試題、成績與其他考務通知。</p>
+          <a class="btn alt" href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news" target="_blank" rel="noopener">
+            開啟官方最新消息
+          </a>
+        </article>
+      </div>
+
+      <p class="small" style="margin-top:16px">
+        本網站用於個人備考整理。考試規則、考期、科目內容與評鑑範圍可能更新，
+        請一律以 iPAS 官方最新公告、簡章、學習指引與勘誤為準。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    iPAS AI 應用規劃師個人備考站｜初級＋中級（機器學習方向）
+  </footer>
+</body>
+</html>

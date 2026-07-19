@@ -1,1 +1,816 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f3d5e">
+  <meta name="description" content="iPAS AI 應用規劃師初級科目二：生成式 AI 應用與規劃備考頁面。">
+  <title>初級生成式 AI 應用與規劃｜iPAS AI 應用規劃師</title>
 
+  <style>
+    :root {
+      --navy: #0f3d5e;
+      --blue: #176b87;
+      --blue-dark: #0d536d;
+      --sky: #e8f4f8;
+      --gold: #f3b33d;
+      --ink: #17212b;
+      --muted: #52616b;
+      --line: #d7e2e8;
+      --surface: #ffffff;
+      --background: #f4f8fa;
+      --notice: #fff8e8;
+      --content-width: 1080px;
+      --radius: 16px;
+      --shadow: 0 4px 18px rgba(15, 61, 94, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: var(--content-width);
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 8px 16px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: var(--sky);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 46px 20px 38px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+    }
+
+    .hero-inner,
+    main {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.22;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0;
+      font-size: 17px;
+      opacity: 0.96;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 22px;
+      padding: 4px 0;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    main {
+      padding: 26px 16px 56px;
+    }
+
+    section {
+      margin-top: 38px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+
+    .notice {
+      padding: 15px 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      background: var(--notice);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-row:last-child {
+      border-bottom: 0;
+    }
+
+    .flow-title {
+      color: var(--blue-dark);
+      font-weight: 850;
+    }
+
+    .flow-row p {
+      margin: 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: #217a50;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 4px 4px 0 0;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">iPAS 備考站</a>
+
+      <div class="nav-links">
+        <a href="../index.html">首頁</a>
+        <a href="beginner-ai-basics.html">初級 AI 基礎</a>
+        <a href="beginner-generative-ai.html" aria-current="page">初級生成式 AI</a>
+        <a href="intermediate-ai-planning.html">中級技術規劃</a>
+        <a href="intermediate-machine-learning.html">中級機器學習</a>
+        <a href="resources.html">官方資源</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>初級科目 2<br>生成式 AI 應用與規劃</h1>
+
+      <p>
+        從生成式 AI 與大型語言模型的基本概念開始，練習提示設計、
+        RAG、幻覺、偏誤、個資、著作權與安全導入的情境判讀。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">初級第 4 梯</span>
+        <span class="tag">11 / 7</span>
+        <span class="tag">生成式 AI</span>
+        <span class="tag">提示設計</span>
+        <span class="tag">風險治理</span>
+      </div>
+
+      <nav class="section-nav" aria-label="本頁章節">
+        <a href="#map">範圍地圖</a>
+        <a href="#genai">生成式 AI</a>
+        <a href="#prompt">提示設計</a>
+        <a href="#rag">RAG</a>
+        <a href="#risk">風險治理</a>
+        <a href="#feynman">費曼卡</a>
+        <a href="#practice">刷題方法</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="map">
+      <h2>考科範圍地圖</h2>
+
+      <div class="notice">
+        <b>讀書核心：</b>
+        這科不只是會使用聊天機器人。你要能判斷何時適合使用生成式 AI、
+        如何寫出有效提示、如何降低幻覺，以及遇到個資、著作權與錯誤風險時該怎麼處理。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <h3>生成式 AI 基礎</h3>
+          <p>理解生成式 AI、LLM、Token、模型訓練與推論等基本概念，並能區分鑑別式與生成式 AI。</p>
+        </article>
+
+        <article class="card">
+          <h3>應用情境與限制</h3>
+          <p>認識文字、圖片、程式碼、摘要、客服與知識問答等應用，也知道它不適合完全取代高風險決策。</p>
+        </article>
+
+        <article class="card">
+          <h3>提示設計</h3>
+          <p>透過角色、任務、背景、限制、格式與範例，讓模型輸出更清楚、可驗證且符合需求的內容。</p>
+        </article>
+
+        <article class="card">
+          <h3>檢索增強生成</h3>
+          <p>理解 RAG 如何先檢索可信文件再生成回答，並知道它可降低但不能完全消除幻覺。</p>
+        </article>
+
+        <article class="card">
+          <h3>風險與治理</h3>
+          <p>掌握幻覺、偏誤、提示注入、敏感資料、著作權、深偽與人類監督等重要議題。</p>
+        </article>
+
+        <article class="card">
+          <h3>導入規劃</h3>
+          <p>從業務問題、資料與知識來源、使用者、成效指標、風險控制與維運方式規劃應用。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="genai">
+      <h2>生成式 AI：能產生內容，不等於永遠正確</h2>
+
+      <div class="card flow">
+        <div class="flow-row">
+          <div class="flow-title">輸入提示</div>
+          <p>使用者提供指令、問題、背景資料或範例，讓模型理解要完成的任務。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">模型推論</div>
+          <p>模型依訓練得到的語言模式，預測下一個可能的 Token，逐步生成文字、程式碼或其他內容。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">生成結果</div>
+          <p>輸出可能流暢、有幫助，但不保證正確、完整、符合時效，或真的有引用到可靠來源。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">人工驗證</div>
+          <p>尤其在法律、醫療、金融、公司政策與對外發布內容中，要查核事實、來源、隱私與適用性。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead>
+            <tr>
+              <th>概念</th>
+              <th>白話解釋</th>
+              <th>考題線索</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>大型語言模型 LLM</td>
+              <td>從大量文本學習語言模式，可理解與生成文字的模型。</td>
+              <td>對話、摘要、翻譯、問答、文本生成。</td>
+            </tr>
+            <tr>
+              <td>Token</td>
+              <td>模型處理文字時切分的基本單位，不一定等於一個中文字或一個英文單字。</td>
+              <td>上下文長度、輸入限制、模型計費、文字切分。</td>
+            </tr>
+            <tr>
+              <td>幻覺 Hallucination</td>
+              <td>模型產生看似合理但實際錯誤、無根據或虛構的內容。</td>
+              <td>假引用、錯誤事實、捏造資料、回答很流暢但不正確。</td>
+            </tr>
+            <tr>
+              <td>多模態</td>
+              <td>模型可處理或生成多種資料型態，例如文字、圖片、聲音與影片。</td>
+              <td>圖文理解、語音、影像、跨媒體輸入輸出。</td>
+            </tr>
+            <tr>
+              <td>上下文 Context</td>
+              <td>模型回答時可參考的前文、提示、文件內容或對話資訊。</td>
+              <td>對話歷史、長文件、指令遺失、上下文長度。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="prompt">
+      <h2>提示設計：把需求說清楚</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>角色</h3>
+          <p>指定模型要扮演的角色，例如「你是具備資料分析背景的助教」，讓輸出角度更明確。</p>
+        </article>
+
+        <article class="card">
+          <h3>任務</h3>
+          <p>明確說明要做什麼，例如摘要、比較、分類、改寫、提出計畫或製作表格。</p>
+        </article>
+
+        <article class="card">
+          <h3>背景</h3>
+          <p>提供必要情境、讀者程度、既有資料與限制，避免模型自行猜測。</p>
+        </article>
+
+        <article class="card">
+          <h3>輸出格式</h3>
+          <p>指定條列、表格、字數、標題、JSON 或步驟，讓結果更容易直接使用與檢查。</p>
+        </article>
+
+        <article class="card">
+          <h3>限制條件</h3>
+          <p>要求只根據提供資料回答、未知時說不知道、不揭露個資、不要捏造來源等。</p>
+        </article>
+
+        <article class="card">
+          <h3>範例</h3>
+          <p>提供一到數個輸入與理想輸出示例，協助模型理解你的格式、語氣與判斷標準。</p>
+        </article>
+      </div>
+
+      <details>
+        <summary>提示範例：把模糊問題變成可用指令</summary>
+        <p><b>模糊寫法：</b>「幫我整理 AI。」</p>
+        <p><b>較佳寫法：</b>「你是 iPAS 初級助教。請以繁體中文，用 200 字內說明『監督式學習與非監督式學習的差異』，包含各一個生活例子，最後列出兩個容易混淆的關鍵字。若無法確認事實，請標示需要查證。」</p>
+        <p><b>重點：</b>角色、任務、範圍、格式、限制與查證要求都更清楚。</p>
+      </details>
+
+      <details>
+        <summary>提示設計不是萬能：何時仍需要人工查核？</summary>
+        <p>只要內容涉及事實正確性、法規、醫療、金融、公司機密、個資或對外正式發布，就必須進行人工查核。提示可以降低模糊性，但無法保證模型完全正確。</p>
+      </details>
+    </section>
+
+    <section id="rag">
+      <h2>RAG：讓回答先參考可信文件</h2>
+
+      <div class="card flow">
+        <div class="flow-row">
+          <div class="flow-title">準備文件</div>
+          <p>整理公司規範、產品手冊、FAQ 或已驗證資料；確認文件版本、品質、更新頻率與存取權限。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">切分與索引</div>
+          <p>把文件切成可檢索的片段，建立索引，讓系統能在使用者提問時找到最相關的內容。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">檢索內容</div>
+          <p>收到問題後，系統先從文件庫找出可能相關的段落，而不是只靠模型內部記憶回答。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">生成回答</div>
+          <p>將問題與檢索到的內容一起提供給模型，要求根據來源生成回答，必要時附上引用或來源連結。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">查核與監控</div>
+          <p>檢查是否檢索到正確資料、文件是否過期、回答有無超出來源，並保留人工修正與回饋機制。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>適用情境</th>
+              <th>主要特性</th>
+              <th>考場辨識</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>提示設計</td>
+              <td>調整單次任務的角色、格式、限制與輸出品質。</td>
+              <td>不改變模型本身，也不一定加入外部知識。</td>
+              <td>角色、格式、指令、範例、語氣。</td>
+            </tr>
+            <tr>
+              <td>RAG</td>
+              <td>使用常更新的內部文件、需要引用依據的知識問答。</td>
+              <td>先檢索外部資料，再依資料生成回答。</td>
+              <td>文件庫、檢索、引用、內規、降低幻覺。</td>
+            </tr>
+            <tr>
+              <td>微調 Fine-tuning</td>
+              <td>需要穩定特定風格、格式或任務能力，且有高品質訓練資料。</td>
+              <td>調整模型參數，成本與評估要求通常較高。</td>
+              <td>特定任務、訓練樣本、調整模型行為。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="risk">
+      <h2>風險與治理：高頻情境題</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>幻覺與錯誤資訊</h3>
+          <p>要求來源、使用可靠文件、建立查核流程與人工覆核；不能把模型回答直接視為事實。</p>
+        </article>
+
+        <article class="card">
+          <h3>個資與機密</h3>
+          <p>避免將未授權的個資、商業機密或敏感文件直接輸入外部服務；確認權限、用途與保存方式。</p>
+        </article>
+
+        <article class="card">
+          <h3>偏誤與歧視</h3>
+          <p>檢查資料與輸出是否對特定群體不公平；高風險用途要有人類監督與申覆機制。</p>
+        </article>
+
+        <article class="card">
+          <h3>著作權與來源</h3>
+          <p>生成內容不代表可任意使用；對外發布前要檢查素材來源、授權、引用與是否過度模仿他人作品。</p>
+        </article>
+
+        <article class="card">
+          <h3>提示注入</h3>
+          <p>惡意輸入可能誘導系統忽略原本規則、洩露資訊或執行不該做的事；需限制權限與過濾輸入輸出。</p>
+        </article>
+
+        <article class="card">
+          <h3>人類監督</h3>
+          <p>涉及重要權益、醫療、金融、法律或安全時，保留人工覆核、例外處理、停止使用與責任窗口。</p>
+        </article>
+      </div>
+
+      <details>
+        <summary>例題思路：公司要用內部文件回答員工問題，最合理的做法是什麼？</summary>
+        <p>先確認文件權限與資料敏感度，再以 RAG 檢索受控的內部文件，要求回答依據來源；同時建立更新、監控與人工回報機制。單純把所有文件直接貼進外部聊天工具，容易產生機密與權限風險。</p>
+      </details>
+    </section>
+
+    <section id="feynman">
+      <h2>費曼教學卡：閉卷解釋 60 秒</h2>
+
+      <details>
+        <summary>生成式 AI 與鑑別式 AI 的差異？</summary>
+        <p><b>生成式 AI：</b>主要用來產生新內容，例如文字、圖片、程式碼或摘要。</p>
+        <p><b>鑑別式 AI：</b>主要用來判斷或預測類別與數值，例如垃圾信分類或違約預測。</p>
+        <p><b>記憶：</b>生成式是「做出內容」，鑑別式是「判斷答案」。</p>
+      </details>
+
+      <details>
+        <summary>RAG 為什麼能降低幻覺，但不能保證沒有幻覺？</summary>
+        <p>RAG 會先找文件，再讓模型依文件回答，因此較不容易只憑模型記憶亂答。但如果找錯文件、文件過期、切分不佳，或模型沒有遵守來源內容，仍可能產生錯誤答案。</p>
+      </details>
+
+      <details>
+        <summary>什麼是好的提示？</summary>
+        <p>好的提示會清楚交代角色、任務、背景、輸出格式與限制。例如要求「只根據提供資料回答；沒有資料時說不知道；以表格列出結果」。</p>
+      </details>
+
+      <details>
+        <summary>幻覺發生時，最好的做法是什麼？</summary>
+        <p>不要只要求模型「不要幻覺」。應改用可靠資料來源、要求附來源、建立事實查核、設定人工覆核，並限制高風險情境自動決策。</p>
+      </details>
+
+      <details>
+        <summary>為什麼不能隨意把公司資料貼進公開 AI 工具？</summary>
+        <p>因為資料可能包含個資、商業機密、未公開資訊或受授權限制的內容。應先確認工具政策、資料處理方式、權限、脫敏需求與公司規範。</p>
+      </details>
+    </section>
+
+    <section id="practice">
+      <h2>刷題方法與今日任務</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>情境題五問</h3>
+          <ol>
+            <li>目標是生成、分類、檢索，還是流程改善？</li>
+            <li>資料是公開、內部、個資或機密嗎？</li>
+            <li>需要提示設計、RAG、微調，還是根本不需 AI？</li>
+            <li>錯誤、幻覺與偏誤會造成什麼影響？</li>
+            <li>要用什麼方式查核、監控與保留人類監督？</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h3>錯題紀錄格式</h3>
+          <p>題號｜主題｜我選的答案｜正確概念｜風險判斷｜白話解釋｜下次複習日。</p>
+        </article>
+
+        <article class="card">
+          <h3>複習原則</h3>
+          <p>每一題除了知道正解，還要能說出「為什麼其他選項不夠好或有什麼風險」。這是生成式 AI 情境題最重要的能力。</p>
+        </article>
+      </div>
+
+      <div class="checklist" style="margin-top:16px">
+        <label>
+          <input type="checkbox">
+          用 60 秒解釋「RAG、提示設計、微調」三者的差異
+        </label>
+
+        <label>
+          <input type="checkbox">
+          寫一個包含角色、任務、背景、格式、限制的提示詞
+        </label>
+
+        <label>
+          <input type="checkbox">
+          做 15 至 25 題生成式 AI 題目，逐題寫出風險與改善做法
+        </label>
+
+        <label>
+          <input type="checkbox">
+          完成 3 張費曼教學卡：幻覺、RAG、提示注入
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>官方資源</h2>
+
+      <div class="card">
+        <p>本頁為個人備考整理。考試範圍、規則、學習指引、勘誤與公告試題，以 iPAS 官方最新資料為準。</p>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
+          target="_blank" rel="noopener">
+          學習指引、樣題、公告試題
+        </a>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads"
+          target="_blank" rel="noopener">
+          簡章與評鑑內容範圍
+        </a>
+
+        <a class="btn alt"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news"
+          target="_blank" rel="noopener">
+          最新消息與勘誤
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    iPAS AI 應用規劃師｜初級科目 2：生成式 AI 應用與規劃
+  </footer>
+</body>
+</html>

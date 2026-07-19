@@ -1,64 +1,692 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <link rel="stylesheet" href="../assets/style.css">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>官方資源｜iPAS AI 應用規劃師</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f3d5e">
+  <meta name="description" content="iPAS AI 應用規劃師官方資源、公告試題與錯題追蹤頁面。">
+  <title>官方資源與錯題追蹤｜iPAS AI 應用規劃師</title>
+
+  <style>
+    :root {
+      --navy: #0f3d5e;
+      --blue: #176b87;
+      --blue-dark: #0d536d;
+      --sky: #e8f4f8;
+      --gold: #f3b33d;
+      --ink: #17212b;
+      --muted: #52616b;
+      --line: #d7e2e8;
+      --surface: #ffffff;
+      --background: #f4f8fa;
+      --notice: #fff8e8;
+      --content-width: 1080px;
+      --radius: 16px;
+      --shadow: 0 4px 18px rgba(15, 61, 94, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: var(--content-width);
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 8px 16px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: var(--sky);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 46px 20px 38px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+    }
+
+    .hero-inner,
+    main {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.22;
+    }
+
+    .hero p {
+      max-width: 790px;
+      margin: 0;
+      font-size: 17px;
+      opacity: 0.96;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 22px;
+      padding: 4px 0;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    main {
+      padding: 26px 16px 56px;
+    }
+
+    section {
+      margin-top: 38px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+
+    .notice {
+      padding: 15px 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      background: var(--notice);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 4px 4px 0 0;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: #217a50;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="page-header">
-  <div>
-    <h1>官方資源與公告試題</h1>
-    <p>集中管理簡章、學習指引、勘誤、公告試題與最新消息；所有考試規則以 iPAS 官方公告為準。</p>
-  </div>
-</header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">iPAS 備考站</a>
 
-<nav class="site-nav" aria-label="主要導覽">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">iPAS 備考站</a>
-
-    <div class="nav-links">
-      <a href="../index.html">首頁</a>
-      <a href="beginner-ai-basics.html">初級 AI 基礎</a>
-      <a href="beginner-generative-ai.html">初級生成式 AI</a>
-      <a href="intermediate-ai-planning.html">中級技術規劃</a>
-      <a href="intermediate-machine-learning.html">中級機器學習</a>
-      <a href="resources.html" aria-current="page">官方資源</a>
+      <div class="nav-links">
+        <a href="../index.html">首頁</a>
+        <a href="beginner-ai-basics.html">初級 AI 基礎</a>
+        <a href="beginner-generative-ai.html">初級生成式 AI</a>
+        <a href="intermediate-ai-planning.html">中級技術規劃</a>
+        <a href="intermediate-machine-learning.html">中級機器學習</a>
+        <a href="resources.html" aria-current="page">官方資源</a>
+      </div>
     </div>
-  </div>
-</nav>
-  
-  <nav>
-    <a href="../index.html">首頁</a>｜
-    <a href="beginner-ai-basics.html">初級：AI 基礎</a>｜
-    <a href="beginner-generative-ai.html">初級：生成式 AI</a>｜
-    <a href="intermediate-ai-planning.html">中級：技術應用規劃</a>｜
-    <a href="intermediate-machine-learning.html">中級：機器學習</a>
   </nav>
 
-  <h2>必讀官方連結</h2>
-  <ul>
-    <li><a href="https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info" target="_blank">
-      考試資訊與報名
-    </a></li>
-    <li><a href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources" target="_blank">
-      學習資源：學習指引、樣題、公告試題、勘誤
-    </a></li>
-    <li><a href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads" target="_blank">
-      檔案下載：簡章與評鑑內容範圍
-    </a></li>
-    <li><a href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news" target="_blank">
-      最新消息
-    </a></li>
-  </ul>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>官方資源<br>公告試題與錯題追蹤</h1>
 
-  <h2>我的使用規則</h2>
-  <ol>
-    <li>每週查看一次最新消息與勘誤。</li>
-    <li>所有考試規則、日期與考科，以官方簡章為準。</li>
-    <li>公告試題用來分析題型與觀念，不假設會原題重出。</li>
-    <li>每做完一份題目，將錯題寫入自己的錯題筆記。</li>
-  </ol>
+      <p>
+        所有考試日期、報名規定、評鑑範圍、學習指引、勘誤與公告試題，
+        都以 iPAS 官方網站的最新資料為準。本頁用來快速回到正確來源，
+        並把練習題轉化為可複習的錯題紀錄。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">官方資訊入口</span>
+        <span class="tag">學習指引</span>
+        <span class="tag">公告試題</span>
+        <span class="tag">勘誤追蹤</span>
+        <span class="tag">錯題複習</span>
+      </div>
+
+      <nav class="section-nav" aria-label="本頁章節">
+        <a href="#official">官方連結</a>
+        <a href="#downloads">下載順序</a>
+        <a href="#questions">試題使用法</a>
+        <a href="#errors">錯題追蹤</a>
+        <a href="#weekly">每週檢查</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="official">
+      <h2>官方連結</h2>
+
+      <div class="notice">
+        <b>使用原則：</b>
+        本網站的整理內容可協助複習，但如果日期、題型、範圍或規定與官方資料不同，
+        一律以 iPAS 官網、簡章、學習指引與勘誤公告為準。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <h3>考試資訊</h3>
+          <p>查詢考期、鑑定資訊、成績與獲證相關作業；報名前也應再次確認最新規定。</p>
+          <a class="btn"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info"
+            target="_blank" rel="noopener">
+            開啟官方考試資訊
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>考試報名</h3>
+          <p>查詢當期報名資訊、操作流程與相關提醒。實際資格與期限以當期簡章為準。</p>
+          <a class="btn"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-registration"
+            target="_blank" rel="noopener">
+            開啟官方報名頁
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>學習資源</h3>
+          <p>下載初級與中級學習指引、公告試題與其他備考資源；做題前先對照最新範圍。</p>
+          <a class="btn"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
+            target="_blank" rel="noopener">
+            開啟學習資源
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>檔案下載</h3>
+          <p>取得年度簡章、評鑑內容範圍參考與其他正式檔案，建立自己的官方資料夾。</p>
+          <a class="btn"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads"
+            target="_blank" rel="noopener">
+            開啟檔案下載
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>最新消息</h3>
+          <p>追蹤學習指引勘誤、公告試題、成績公告與考務更新；建議每週查看一次。</p>
+          <a class="btn"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news"
+            target="_blank" rel="noopener">
+            開啟最新消息
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>歷年成果</h3>
+          <p>查看歷屆考試成果與官方發布資訊，作為理解考試制度的輔助資料。</p>
+          <a class="btn alt"
+            href="https://ipd.nat.gov.tw/ipas/certification/AIAP/achievements-history"
+            target="_blank" rel="noopener">
+            開啟歷年成果
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <h2>下載與閱讀順序</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>1. 年度簡章</h3>
+          <p>先確認考試日期、報名資格、鑑定方式、成績規定與注意事項。不要依舊資料推測當年度規則。</p>
+        </article>
+
+        <article class="card">
+          <h3>2. 評鑑內容範圍</h3>
+          <p>把它當成讀書地圖，用來確認每個科目應掌握的主題，避免只讀自己熟悉的內容。</p>
+        </article>
+
+        <article class="card">
+          <h3>3. 學習指引</h3>
+          <p>逐章建立概念卡與問題清單。讀完一節後，用自己的話口述，而不是只畫重點。</p>
+        </article>
+
+        <article class="card">
+          <h3>4. 勘誤公告</h3>
+          <p>學習指引或題目如有修正，以勘誤為準；下載後請在檔名或筆記標示版本與日期。</p>
+        </article>
+
+        <article class="card">
+          <h3>5. 公告試題</h3>
+          <p>先限時作答，再依學習指引檢討；題目是用來找弱點，不是用來背選項。</p>
+        </article>
+
+        <article class="card">
+          <h3>6. 錯題本</h3>
+          <p>將錯題分類成觀念、判讀、計算、程式與粗心五類，安排隔天與一週後複習。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="questions">
+      <h2>公告試題使用法</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>階段</th>
+              <th>做法</th>
+              <th>目的</th>
+              <th>避免的錯誤</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第一次</td>
+              <td>限時完成，不查資料，標記不確定題。</td>
+              <td>診斷目前程度與時間分配。</td>
+              <td>一邊做一邊查答案，無法看出真正弱點。</td>
+            </tr>
+            <tr>
+              <td>檢討</td>
+              <td>每題寫下正解、關鍵字、錯因與其他選項的排除理由。</td>
+              <td>把題目轉成可遷移的判斷規則。</td>
+              <td>只記 A、B、C、D，換題就不會。</td>
+            </tr>
+            <tr>
+              <td>補強</td>
+              <td>回到學習指引對應章節，完成一張費曼教學卡。</td>
+              <td>補概念缺口，而不是只補答案。</td>
+              <td>連續刷題卻不理解錯因。</td>
+            </tr>
+            <tr>
+              <td>第二次</td>
+              <td>隔幾天重做錯題與相似題，閉卷口述答案理由。</td>
+              <td>驗證是否真的理解並能穩定作答。</td>
+              <td>隔天立刻重做，因為記憶答案而誤以為學會。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details>
+        <summary>初級題目怎麼檢討？</summary>
+        <p>先辨識題目考的是定義、差異、流程、風險還是應用情境。每題都要能用白話說出正解，並指出一個最容易混淆的概念，例如「生成式 AI 與鑑別式 AI」、「Precision 與 Recall」。</p>
+      </details>
+
+      <details>
+        <summary>中級科目 1 題目怎麼檢討？</summary>
+        <p>用「需求 → 資料 → 技術 → 指標 → 治理」五格分析。中級技術規劃題通常不是只問技術名詞，而是問在限制條件下什麼方案最合理。</p>
+      </details>
+
+      <details>
+        <summary>中級科目 3 題目怎麼檢討？</summary>
+        <p>先判斷任務類型，再看資料品質與前處理，接著選模型與指標。程式題則先辨識程式處於載入、清理、切分、訓練、預測或評估的哪個階段。</p>
+      </details>
+    </section>
+
+    <section id="errors">
+      <h2>錯題追蹤模板</h2>
+
+      <div class="notice">
+        <b>最重要欄位：</b>
+        「我為什麼錯」比「正確答案」更重要。錯因通常可分為：
+        不懂概念、混淆概念、看錯題目、忽略限制條件、計算或程式判讀錯誤、時間壓力或粗心。
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>科目／題號</th>
+              <th>主題</th>
+              <th>錯因</th>
+              <th>正確規則</th>
+              <th>60 秒白話解釋</th>
+              <th>複習日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>例：7/20</td>
+              <td>初級科目 2／第 12 題</td>
+              <td>RAG 與幻覺</td>
+              <td>以為 RAG 能保證回答完全正確</td>
+              <td>RAG 可提供來源並降低幻覺，但仍受檢索與文件品質影響</td>
+              <td>先找文件再回答，不等於永遠找對、也不等於模型不會答錯</td>
+              <td>7/21、7/27</td>
+            </tr>
+            <tr>
+              <td>例：7/20</td>
+              <td>中級科目 3／第 8 題</td>
+              <td>Precision／Recall</td>
+              <td>沒有先看題目在意誤報還是漏報</td>
+              <td>怕漏掉正類時提高 Recall；怕誤報時提高 Precision</td>
+              <td>Recall 是「真的有問題的案例，我抓到了多少」</td>
+              <td>7/21、7/27</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="small" style="margin-top:12px">
+        你可以把表格內容複製到 Notion、Google Sheets、Apple 備忘錄或紙本筆記。
+        本頁提供的是欄位結構；真正的複習價值在於你寫下自己的錯因與白話解釋。
+      </p>
+    </section>
+
+    <section id="weekly">
+      <h2>每週官方資料檢查</h2>
+
+      <div class="checklist">
+        <label>
+          <input type="checkbox">
+          查看官方「最新消息」，確認是否有勘誤、試題、考務或報名公告更新
+        </label>
+
+        <label>
+          <input type="checkbox">
+          確認已下載最新版年度簡章與評鑑內容範圍參考
+        </label>
+
+        <label>
+          <input type="checkbox">
+          查看學習資源頁，確認是否新增初級或中級公告試題
+        </label>
+
+        <label>
+          <input type="checkbox">
+          將本週錯題按科目與主題分類，挑出最常錯的三個概念
+        </label>
+
+        <label>
+          <input type="checkbox">
+          閉卷口述本週三個弱點概念；講不清楚就回到學習指引補強
+        </label>
+
+        <label>
+          <input type="checkbox">
+          更新下週計畫：保留弱點複習，也安排一次限時題目練習
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>完成後的網站檢查</h2>
+
+      <div class="card">
+        <p>現在首頁、初級兩科、中級兩科與官方資源頁都已建立。請在 GitHub Pages 上依序點一次頂端導覽列，確認所有連結可正常開啟。</p>
+
+        <ul>
+          <li>首頁：<a href="../index.html">iPAS AI 應用規劃師備考站</a></li>
+          <li>初級科目 1：<a href="beginner-ai-basics.html">人工智慧基礎概論</a></li>
+          <li>初級科目 2：<a href="beginner-generative-ai.html">生成式 AI 應用與規劃</a></li>
+          <li>中級科目 1：<a href="intermediate-ai-planning.html">人工智慧技術應用與規劃</a></li>
+          <li>中級科目 3：<a href="intermediate-machine-learning.html">機器學習技術與應用</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    iPAS AI 應用規劃師｜官方資源、公告試題與錯題追蹤
+  </footer>
 </body>
 </html>

@@ -1,97 +1,496 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <link rel="stylesheet" href="../assets/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f3d5e">
-  <title>中級機器學習｜iPAS AI 應用規劃師</title>
+  <meta name="description" content="iPAS AI 應用規劃師中級科目三：機器學習技術與應用備考頁面。">
+  <title>中級機器學習技術與應用｜iPAS AI 應用規劃師</title>
+
+  <style>
+    :root {
+      --navy: #0f3d5e;
+      --blue: #176b87;
+      --blue-dark: #0d536d;
+      --sky: #e8f4f8;
+      --gold: #f3b33d;
+      --ink: #17212b;
+      --muted: #52616b;
+      --line: #d7e2e8;
+      --surface: #ffffff;
+      --background: #f4f8fa;
+      --notice: #fff8e8;
+      --content-width: 1080px;
+      --radius: 16px;
+      --shadow: 0 4px 18px rgba(15, 61, 94, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: var(--content-width);
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 8px 16px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: var(--sky);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 46px 20px 38px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+    }
+
+    .hero-inner,
+    main {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.22;
+    }
+
+    .hero p {
+      max-width: 790px;
+      margin: 0;
+      font-size: 17px;
+      opacity: 0.96;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 22px;
+      padding: 4px 0;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    main {
+      padding: 26px 16px 56px;
+    }
+
+    section {
+      margin-top: 38px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #edf3f5;
+      color: #173f55;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .notice {
+      padding: 15px 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      background: var(--notice);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-row:last-child {
+      border-bottom: 0;
+    }
+
+    .flow-title {
+      color: var(--blue-dark);
+      font-weight: 850;
+    }
+
+    .flow-row p {
+      margin: 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: #217a50;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 4px 4px 0 0;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<nav class="site-nav" aria-label="主要導覽">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">iPAS 備考站</a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">iPAS 備考站</a>
 
-    <div class="nav-links">
-      <a href="../index.html">首頁</a>
-      <a href="beginner-ai-basics.html">初級 AI 基礎</a>
-      <a href="beginner-generative-ai.html">初級生成式 AI</a>
-      <a href="intermediate-ai-planning.html">中級技術規劃</a>
-      <a href="intermediate-machine-learning.html" aria-current="page">中級機器學習</a>
-      <a href="resources.html">官方資源</a>
+      <div class="nav-links">
+        <a href="../index.html">首頁</a>
+        <a href="beginner-ai-basics.html">初級 AI 基礎</a>
+        <a href="beginner-generative-ai.html">初級生成式 AI</a>
+        <a href="intermediate-ai-planning.html">中級技術規劃</a>
+        <a href="intermediate-machine-learning.html" aria-current="page">中級機器學習</a>
+        <a href="resources.html">官方資源</a>
+      </div>
     </div>
-  </div>
-</nav>
-  
-<header class="page-header">
-  <div>
-    <h1>中級科目 3：機器學習技術與應用</h1>
-    <p>以費曼學習法整理模型、資料處理、評估指標與程式判讀。</p>
-
-    <nav class="section-nav" aria-label="本頁章節">
-      <a href="#map">範圍地圖</a>
-      <a href="#flow">完整流程</a>
-      <a href="#models">模型選擇</a>
-      <a href="#metrics">評估指標</a>
-      <a href="#feynman">費曼卡</a>
-      <a href="#practice">刷題規則</a>
-      <a href="#official">官方資源</a>
-    </nav>
-  </div>
-</header>
-
-  <nav>
-    <a href="../index.html">首頁</a>
-    <a href="#map">範圍地圖</a>
-    <a href="#flow">完整流程</a>
-    <a href="#models">模型選擇</a>
-    <a href="#metrics">評估指標</a>
-    <a href="#feynman">費曼卡</a>
-    <a href="#practice">刷題規則</a>
-    <a href="#official">官方資源</a>
   </nav>
 
-  <main>
-    <div class="notice">
-      <b>讀書定位：</b>
-      中級不是只背名詞。你要能從題目中的商業問題、資料條件與風險，
-      推論適合的資料處理、模型、評估指標與改善做法。
-      遇到程式題時，目標是讀懂程式「在做什麼」，不只是背語法。
-    </div>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>中級科目 3<br>機器學習技術與應用</h1>
 
+      <p>
+        從資料前處理、特徵工程、監督與非監督學習、模型評估、過擬合，
+        到程式判讀、部署監控與治理，建立能看懂情境並選出合理做法的能力。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">中級選考方向</span>
+        <span class="tag">11 / 14</span>
+        <span class="tag">機器學習</span>
+        <span class="tag">程式判讀</span>
+        <span class="tag">模型評估</span>
+      </div>
+
+      <nav class="section-nav" aria-label="本頁章節">
+        <a href="#map">範圍地圖</a>
+        <a href="#flow">完整流程</a>
+        <a href="#models">模型選擇</a>
+        <a href="#metrics">評估指標</a>
+        <a href="#generalization">泛化與調參</a>
+        <a href="#code">程式判讀</a>
+        <a href="#feynman">費曼卡</a>
+        <a href="#practice">刷題方法</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
     <section id="map">
       <h2>考科範圍地圖</h2>
 
-      <div class="grid">
+      <div class="notice">
+        <b>中級讀書定位：</b>
+        你不只要背演算法名稱，而要能從題目判斷任務類型、資料問題、
+        合適的前處理、模型、評估指標與改善方式。遇到程式題時，先看它在資料流程中的哪一步，
+        再判斷程式碼的用途。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
         <article class="card">
-          <h3>1. 問題與資料</h3>
-          <p>釐清分類、迴歸、分群或降維問題；辨識標籤、特徵、訓練資料與資料品質問題。</p>
+          <h3>問題與資料</h3>
+          <p>分辨分類、迴歸、分群、降維與異常偵測；理解特徵、標籤、資料品質、資料洩漏與不平衡。</p>
         </article>
 
         <article class="card">
-          <h3>2. 資料前處理</h3>
-          <p>缺失值、重複值、離群值、編碼、標準化、正規化、資料切分與資料洩漏。</p>
+          <h3>資料前處理</h3>
+          <p>處理缺失值、重複值、離群值、文字與類別編碼、標準化、正規化與資料切分。</p>
         </article>
 
         <article class="card">
-          <h3>3. 模型與演算法</h3>
-          <p>監督式學習、非監督式學習、分類、迴歸、決策樹、集成方法、分群與降維。</p>
+          <h3>監督式學習</h3>
+          <p>理解分類、迴歸、決策樹、集成方法與模型如何從有標籤資料學習。</p>
         </article>
 
         <article class="card">
-          <h3>4. 評估與調校</h3>
-          <p>混淆矩陣、Accuracy、Precision、Recall、F1-score、ROC-AUC、MAE、MSE、RMSE。</p>
+          <h3>非監督式學習</h3>
+          <p>理解分群與降維，能判斷無標籤資料中如何找出結構、族群或主要特徵。</p>
         </article>
 
         <article class="card">
-          <h3>5. 泛化與風險</h3>
-          <p>欠擬合、過擬合、交叉驗證、正則化、類別不平衡、偏誤、公平性與可解釋性。</p>
+          <h3>模型評估與調校</h3>
+          <p>使用混淆矩陣、Precision、Recall、F1、ROC-AUC、MAE、MSE、RMSE 與交叉驗證。</p>
         </article>
 
         <article class="card">
-          <h3>6. 部署與維運</h3>
-          <p>模型版本、資料漂移、概念漂移、監控、再訓練、隱私與模型治理。</p>
+          <h3>部署與維運</h3>
+          <p>管理模型版本、資料漂移、概念漂移、效能監控、再訓練、可解釋性與治理風險。</p>
         </article>
       </div>
     </section>
@@ -99,40 +498,40 @@
     <section id="flow">
       <h2>機器學習完整流程</h2>
 
-      <div class="card">
-        <div class="flow-step">
-          <b>步驟 1｜定義問題</b><br>
-          先問：「我要預測數值、判斷類別，還是找出群體？」例如預測房價是迴歸；判斷是否違約是分類；客戶分眾是分群。
+      <div class="card flow">
+        <div class="flow-row">
+          <div class="flow-title">1. 定義任務</div>
+          <p>先判斷要預測連續數字、判斷類別、進行分群、降低維度，還是找出異常；任務不同，資料與指標也不同。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 2｜盤點資料</b><br>
-          確認資料來源、資料量、標籤品質、欄位意義、個資與授權限制。資料不可靠時，模型再複雜也無法補救。
+        <div class="flow-row">
+          <div class="flow-title">2. 盤點資料</div>
+          <p>確認資料來源、欄位意義、標籤品質、資料量、偏誤、權限與是否有未來資訊造成資料洩漏。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 3｜清理與轉換</b><br>
-          處理缺失值、重複值與異常值；將文字類別轉數值；依模型需要進行縮放或標準化。
+        <div class="flow-row">
+          <div class="flow-title">3. 清理與特徵</div>
+          <p>處理缺失值、重複值、離群值與格式；選擇、轉換或建立能協助預測的特徵。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 4｜切分資料</b><br>
-          訓練集用來學習；驗證集用來比較模型和調整超參數；測試集留到最後，評估模型面對未見資料的表現。
+        <div class="flow-row">
+          <div class="flow-title">4. 切分資料</div>
+          <p>訓練集用來學習；驗證集用來比較與調參；測試集留到最後，檢查面對未見資料的泛化能力。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 5｜建立基準與模型</b><br>
-          先用簡單基準模型，再比較較複雜模型。選擇模型時考慮準確度、可解釋性、運算成本、延遲與公平性。
+        <div class="flow-row">
+          <div class="flow-title">5. 建立模型</div>
+          <p>先設定簡單基準模型，再比較不同模型；不能只追求訓練分數，也要考慮可解釋性、成本與延遲。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 6｜評估與改善</b><br>
-          依任務與錯誤成本選指標；檢查過擬合、資料洩漏、類別不平衡與不同群體的表現。
+        <div class="flow-row">
+          <div class="flow-title">6. 評估改善</div>
+          <p>依錯誤成本選擇指標，檢查類別不平衡、過擬合、欠擬合與不同群體的表現，再調整資料或模型。</p>
         </div>
 
-        <div class="flow-step">
-          <b>步驟 7｜部署、監控、再訓練</b><br>
-          上線後持續看資料漂移與模型表現；設定告警、版本與回退機制，必要時以新資料再訓練。
+        <div class="flow-row">
+          <div class="flow-title">7. 部署監控</div>
+          <p>上線後持續監控資料漂移、概念漂移、效能、延遲與安全；必要時回退版本或重新訓練。</p>
         </div>
       </div>
     </section>
@@ -147,44 +546,39 @@
               <th>題目線索</th>
               <th>任務類型</th>
               <th>優先聯想</th>
-              <th>費曼白話說法</th>
+              <th>白話解釋</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
-              <td>預測房價、銷售額、溫度</td>
+              <td>房價、銷售額、溫度、需求量</td>
               <td>迴歸</td>
               <td>線性迴歸、樹模型等</td>
-              <td>答案是連續數字，模型要猜「多少」。</td>
+              <td>目標是連續數字，模型要預測「多少」。</td>
             </tr>
-
             <tr>
-              <td>詐欺／非詐欺、通過／不通過、疾病類型</td>
+              <td>詐欺／非詐欺、通過／不通過、疾病類別</td>
               <td>分類</td>
               <td>邏輯斯迴歸、決策樹、隨機森林、SVM 等</td>
-              <td>答案是類別，模型要判斷「是哪一類」。</td>
+              <td>目標是類別，模型要判斷「是哪一類」。</td>
             </tr>
-
             <tr>
-              <td>客戶分群、無標籤、找相似族群</td>
+              <td>客戶分群、沒有標籤、找相似族群</td>
               <td>非監督式分群</td>
               <td>K-means、階層式分群等</td>
-              <td>沒有標準答案，先把相似的人放在一起。</td>
+              <td>沒有標準答案，讓模型把相似資料放在一起。</td>
             </tr>
-
             <tr>
-              <td>欄位太多、降低維度、保留主要變異</td>
+              <td>欄位很多、降低維度、保留主要變異</td>
               <td>降維</td>
               <td>PCA 等</td>
-              <td>把很多資訊濃縮成較少但重要的方向。</td>
+              <td>將大量欄位濃縮成較少但有代表性的方向。</td>
             </tr>
-
             <tr>
-              <td>異常交易、少數不尋常樣本</td>
+              <td>少數異常交易、不尋常行為、異常樣本</td>
               <td>異常偵測</td>
-              <td>統計法、分群距離、Isolation Forest 等</td>
-              <td>找出與大多數資料差異很大的個案。</td>
+              <td>統計方法、分群距離、Isolation Forest 等</td>
+              <td>找出和大多數資料明顯不同的個案。</td>
             </tr>
           </tbody>
         </table>
@@ -192,130 +586,254 @@
     </section>
 
     <section id="metrics">
-      <h2>評估指標：先看錯誤成本</h2>
+      <h2>評估指標：先想錯誤成本</h2>
 
       <div class="grid">
         <article class="card">
           <h3>Accuracy</h3>
-          <p><b>白話：</b>全部題目中，答對的比例。</p>
-          <p><b>注意：</b>類別嚴重不平衡時可能誤導。例如 99% 都是正常交易，全部猜正常也有 99% Accuracy。</p>
+          <p><b>白話：</b>所有預測中，答對的比例。</p>
+          <p><b>提醒：</b>類別極度不平衡時容易誤導，例如幾乎都是正常交易。</p>
         </article>
 
         <article class="card">
           <h3>Precision</h3>
-          <p><b>白話：</b>模型說「是」的案件中，真正是的比例。</p>
-          <p><b>重點：</b>想減少誤報時特別重要。</p>
+          <p><b>白話：</b>模型判定「是」的案件中，真正是的比例。</p>
+          <p><b>重點：</b>重視減少誤報 FP 時特別重要。</p>
         </article>
 
         <article class="card">
           <h3>Recall</h3>
           <p><b>白話：</b>所有真正「是」的案件中，被模型抓到的比例。</p>
-          <p><b>重點：</b>想減少漏報時特別重要，例如疾病初篩。</p>
+          <p><b>重點：</b>重視減少漏報 FN 時特別重要。</p>
         </article>
 
         <article class="card">
           <h3>F1-score</h3>
-          <p><b>白話：</b>同時兼顧 Precision 與 Recall 的平衡指標。</p>
-          <p><b>重點：</b>資料不平衡且兩種錯誤都在意時常使用。</p>
+          <p><b>白話：</b>兼顧 Precision 與 Recall 的平衡指標。</p>
+          <p><b>重點：</b>資料不平衡且兩種錯誤都重要時常使用。</p>
+        </article>
+
+        <article class="card">
+          <h3>ROC-AUC</h3>
+          <p><b>白話：</b>衡量模型區分正負類別的整體能力，不只看單一閾值。</p>
+          <p><b>提醒：</b>仍要搭配任務成本與其他指標解讀。</p>
         </article>
 
         <article class="card">
           <h3>MAE、MSE、RMSE</h3>
-          <p><b>白話：</b>用於迴歸任務，衡量預測數字與真實數字相差多遠。</p>
-          <p><b>辨識：</b>MSE 與 RMSE 對大誤差更敏感；MAE 比較直觀。</p>
+          <p><b>白話：</b>用於迴歸，衡量預測數字和真實數字相差多遠。</p>
+          <p><b>辨識：</b>MSE、RMSE 對大誤差更敏感；MAE 較直觀。</p>
+        </article>
+      </div>
+
+      <details>
+        <summary>混淆矩陣怎麼看？</summary>
+        <p><b>TP：</b>預測是、實際也是；<b>TN：</b>預測否、實際也否；<b>FP：</b>誤報，預測是但實際否；<b>FN：</b>漏報，預測否但實際是。</p>
+        <p>題目先問「哪種錯誤最不能接受」：怕漏掉疾病或詐欺，優先提高 Recall、降低 FN；怕錯誤警報太多，優先提高 Precision、降低 FP。</p>
+      </details>
+    </section>
+
+    <section id="generalization">
+      <h2>泛化、過擬合與調參</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>過擬合</h3>
+          <p>訓練表現很好、測試表現差。模型可能太複雜、資料太少，或把雜訊當成規律。</p>
+          <p><b>改善：</b>增加資料、降低模型複雜度、正則化、交叉驗證、改善特徵。</p>
         </article>
 
         <article class="card">
-          <h3>混淆矩陣</h3>
-          <p><b>白話：</b>把預測和真實結果交叉對照，得到 TP、TN、FP、FN。</p>
-          <p><b>考場：</b>先辨識「誤報 FP」與「漏報 FN」，再判斷該優先改善哪個。</p>
+          <h3>欠擬合</h3>
+          <p>訓練與測試都不好。模型可能太簡單、特徵不足或訓練不充分。</p>
+          <p><b>改善：</b>改善特徵、提高模型表達能力、調整訓練設定。</p>
+        </article>
+
+        <article class="card">
+          <h3>交叉驗證</h3>
+          <p>輪流把不同資料分段當驗證集，避免只依賴單一次切分；資料量有限時特別有用。</p>
+        </article>
+
+        <article class="card">
+          <h3>資料洩漏</h3>
+          <p>模型在訓練時看到不該知道的未來資訊或答案線索，造成離線成績虛高、上線失效。</p>
+        </article>
+
+        <article class="card">
+          <h3>類別不平衡</h3>
+          <p>少數類別很少，例如詐欺交易遠少於正常交易；不能只看 Accuracy，應考慮 Precision、Recall、F1 等。</p>
+        </article>
+
+        <article class="card">
+          <h3>特徵工程</h3>
+          <p>選擇、轉換或建立有用輸入欄位，例如將日期轉成星期、月份或節日特徵；避免加入造成洩漏的欄位。</p>
         </article>
       </div>
     </section>
 
+    <section id="code">
+      <h2>程式判讀：先看它在流程哪一步</h2>
+
+      <div class="notice">
+        <b>讀程式策略：</b>
+        中級程式題的重點是理解資料處理、模型訓練與評估流程。看到函式名稱時，
+        先說出「它做什麼」，再判斷「為什麼在這個階段做」與「可能有什麼風險」。
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead>
+            <tr>
+              <th>常見程式或函式</th>
+              <th>通常代表的動作</th>
+              <th>應聯想的概念</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>pd.read_csv()</code></td>
+              <td>讀取 CSV 資料檔。</td>
+              <td>資料載入。</td>
+            </tr>
+            <tr>
+              <td><code>df.head()</code>、<code>df.info()</code>、<code>df.describe()</code></td>
+              <td>檢視資料前幾列、欄位型態、缺失與統計摘要。</td>
+              <td>探索資料、了解品質。</td>
+            </tr>
+            <tr>
+              <td><code>df.isnull().sum()</code></td>
+              <td>統計每欄缺失值數量。</td>
+              <td>缺失值檢查。</td>
+            </tr>
+            <tr>
+              <td><code>dropna()</code>、<code>fillna()</code></td>
+              <td>刪除或填補缺失值。</td>
+              <td>資料清理；要思考是否造成偏誤或丟失過多資料。</td>
+            </tr>
+            <tr>
+              <td><code>train_test_split()</code></td>
+              <td>將資料切成訓練與測試資料。</td>
+              <td>泛化評估、避免只看訓練表現。</td>
+            </tr>
+            <tr>
+              <td><code>StandardScaler()</code></td>
+              <td>把數值特徵進行標準化。</td>
+              <td>特徵尺度；某些距離或梯度相關模型常需要注意。</td>
+            </tr>
+            <tr>
+              <td><code>model.fit()</code></td>
+              <td>用訓練資料讓模型學習。</td>
+              <td>模型訓練。</td>
+            </tr>
+            <tr>
+              <td><code>model.predict()</code></td>
+              <td>對新資料產生預測。</td>
+              <td>推論、分類或迴歸結果。</td>
+            </tr>
+            <tr>
+              <td><code>accuracy_score()</code></td>
+              <td>計算分類正確率。</td>
+              <td>Accuracy；類別不平衡時不可單獨依賴。</td>
+            </tr>
+            <tr>
+              <td><code>KMeans()</code></td>
+              <td>依相似性將資料分成群。</td>
+              <td>非監督式分群、無標籤資料。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section id="feynman">
-      <h2>費曼教學卡：閉卷講 60 秒</h2>
+      <h2>費曼教學卡：閉卷解釋 60 秒</h2>
 
       <details>
-        <summary>監督式學習 vs 非監督式學習</summary>
-        <p><b>監督式：</b>像有答案的練習題，資料已經標好類別或數值，模型從中學規則。</p>
-        <p><b>非監督式：</b>像拿到一堆沒有標記的照片，模型自己找出相似群體或結構。</p>
-        <p><b>考場關鍵：</b>有標籤、預測答案，偏向監督式；無標籤、客群分組，偏向非監督式。</p>
+        <summary>監督式與非監督式學習的差異？</summary>
+        <p><b>監督式：</b>像有答案的練習題。資料已經標好類別或數字，模型從中學規則。</p>
+        <p><b>非監督式：</b>像一堆沒有標籤的資料，模型自己找相似群體或主要結構。</p>
       </details>
 
       <details>
-        <summary>過擬合 vs 欠擬合</summary>
-        <p><b>過擬合：</b>像只背熟練習題，訓練資料很準，但遇到新題目就失常；通常模型太複雜或資料太少。</p>
-        <p><b>欠擬合：</b>像只學到很粗淺的規則，連練習題也答不好；通常模型太簡單或特徵不足。</p>
-        <p><b>改善：</b>過擬合可考慮更多資料、正則化、交叉驗證、降低複雜度；欠擬合可改善特徵或提高模型表達能力。</p>
+        <summary>過擬合與欠擬合的差異？</summary>
+        <p><b>過擬合：</b>把練習題背太熟，訓練高分、測試低分；模型學到雜訊。</p>
+        <p><b>欠擬合：</b>連練習題也沒學好，訓練和測試都差；模型或特徵太簡單。</p>
+      </details>
+
+      <details>
+        <summary>Precision 和 Recall 怎麼分？</summary>
+        <p><b>Precision：</b>模型說「是」時，有多少真的「是」，重點是少誤報。</p>
+        <p><b>Recall：</b>所有真的「是」中，模型抓到了多少，重點是少漏報。</p>
       </details>
 
       <details>
         <summary>資料洩漏是什麼？</summary>
-        <p><b>白話：</b>模型在考試前偷看到答案線索，導致離線成績很好，上線後卻失效。</p>
-        <p><b>例子：</b>用「是否已完成理賠」來預測「是否詐欺」，但理賠狀態是在事件發生後才知道。</p>
-        <p><b>考場關鍵：</b>題目出現未來資訊、目標欄位衍生資訊，優先懷疑資料洩漏。</p>
+        <p>資料洩漏像考試前偷看到答案。模型使用了未來才會知道的資訊或目標答案衍生資訊，導致測試成績看似很好，上線卻失效。</p>
       </details>
 
       <details>
-        <summary>交叉驗證為什麼有用？</summary>
-        <p><b>白話：</b>不是只用一次切分決定模型，而是輪流把不同部分當驗證資料，多次測試模型穩定度。</p>
-        <p><b>用途：</b>資料不多時，更有效利用資料來比較模型與調整超參數。</p>
+        <summary>為什麼要保留測試集？</summary>
+        <p>測試集要留到最後，模擬真正未見資料。如果反覆用測試集調整模型，測試集也會變成「被看過的練習題」，無法再客觀評估泛化能力。</p>
       </details>
     </section>
 
     <section id="practice">
-      <h2>程式判讀與刷題規則</h2>
+      <h2>刷題方法與今日任務</h2>
 
       <div class="grid">
         <article class="card">
-          <h3>看到程式，先找動詞</h3>
-          <ul>
-            <li><code>read_csv</code>：讀取資料。</li>
-            <li><code>head</code>、<code>info</code>、<code>describe</code>：檢視資料。</li>
-            <li><code>isnull</code>：檢查缺失值。</li>
-            <li><code>dropna</code>、<code>fillna</code>：處理缺失值。</li>
-            <li><code>train_test_split</code>：切分訓練與測試資料。</li>
-            <li><code>fit</code>：用訓練資料學習。</li>
-            <li><code>predict</code>：產生預測結果。</li>
-            <li><code>score</code>、<code>accuracy_score</code>：評估模型。</li>
-          </ul>
+          <h3>每題四問</h3>
+          <ol>
+            <li>目標是分類、迴歸、分群、降維還是異常偵測？</li>
+            <li>資料有沒有標籤、缺失、不平衡、離群或洩漏？</li>
+            <li>哪種前處理或模型最符合問題？</li>
+            <li>錯誤成本在意誤報 FP 還是漏報 FN？應看哪個指標？</li>
+          </ol>
         </article>
 
         <article class="card">
-          <h3>每題四問</h3>
+          <h3>程式題三問</h3>
           <ol>
-            <li>這題的目標是分類、迴歸、分群還是降維？</li>
-            <li>資料是否有標籤？是否有缺失、不平衡或洩漏？</li>
-            <li>哪個模型或前處理最符合問題限制？</li>
-            <li>錯誤成本是誤報較高，還是漏報較高？應看哪個指標？</li>
+            <li>這段程式目前處於資料、訓練、預測還是評估階段？</li>
+            <li>函式或方法的用途是什麼？</li>
+            <li>若資料或流程不當，可能造成什麼問題？</li>
           </ol>
         </article>
 
         <article class="card">
           <h3>錯題紀錄格式</h3>
-          <p>題號｜主題｜我選的答案｜正解理由｜混淆概念｜60 秒白話解釋｜下次複習日。</p>
-          <p>原則：不要只寫「粗心」，要寫出你錯把哪一個概念當成哪一個概念。</p>
+          <p>題號｜主題｜我選的答案｜正確規則｜混淆概念｜60 秒白話解釋｜下次複習日。</p>
         </article>
       </div>
 
-      <div class="card check" style="margin-top:14px">
-        <h3>今日最小任務</h3>
-        <label><input type="checkbox">用自己的話解釋一個模型或指標，錄音或口述 60 秒</label>
-        <label><input type="checkbox">做 15 題機器學習題，逐題寫出選擇理由</label>
-        <label><input type="checkbox">整理 3 題錯題為費曼教學卡</label>
-        <label><input type="checkbox">閱讀一段官方學習指引，標出不會解釋的概念</label>
+      <div class="checklist" style="margin-top:16px">
+        <label>
+          <input type="checkbox">
+          用 60 秒解釋 Accuracy、Precision、Recall 與 F1-score 的差異
+        </label>
+
+        <label>
+          <input type="checkbox">
+          做 15 至 25 題中級機器學習題，逐題寫出選擇理由
+        </label>
+
+        <label>
+          <input type="checkbox">
+          判讀 5 段常見 Python 程式，說出每段處於哪個資料流程步驟
+        </label>
+
+        <label>
+          <input type="checkbox">
+          完成 3 張費曼教學卡：過擬合、資料洩漏、交叉驗證
+        </label>
       </div>
     </section>
 
-    <section id="official">
-      <h2>官方範圍與題目資源</h2>
+    <section>
+      <h2>官方資源</h2>
 
       <div class="card">
-        <p>
-          本頁是個人整理工具；考試科目、範圍、題型、報名與規則，
-          請以 iPAS 官方最新簡章、評鑑內容範圍、學習指引及勘誤為準。
-        </p>
+        <p>本頁為個人備考整理。考試範圍、程式題型、學習指引、勘誤與公告試題，請以 iPAS 官方最新資料為準。</p>
 
         <a class="btn"
           href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
@@ -332,7 +850,7 @@
         <a class="btn alt"
           href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news"
           target="_blank" rel="noopener">
-          最新消息與勘誤
+          最新消息與程式題型說明
         </a>
       </div>
     </section>

@@ -1,233 +1,45 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
+  <link rel="stylesheet" href="../assets/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f3d5e">
   <title>中級 AI 技術應用與規劃｜iPAS AI 應用規劃師</title>
-
-  <style>
-    :root {
-      --navy: #0f3d5e;
-      --blue: #176b87;
-      --sky: #e8f4f8;
-      --gold: #f3b33d;
-      --ink: #17212b;
-      --muted: #52616b;
-      --line: #d7e2e8;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #f4f8fa;
-      color: var(--ink);
-      font: 16px/1.7 -apple-system, BlinkMacSystemFont,
-        "PingFang TC", "Noto Sans TC", sans-serif;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      color: var(--white);
-      padding: 38px 20px 30px;
-    }
-
-    header > div,
-    main {
-      max-width: 1050px;
-      margin: auto;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 6vw, 42px);
-      line-height: 1.25;
-    }
-
-    h2 {
-      color: var(--navy);
-      font-size: 25px;
-      line-height: 1.35;
-      margin: 0 0 14px;
-    }
-
-    h3 {
-      color: var(--blue);
-      font-size: 18px;
-      margin: 0 0 8px;
-    }
-
-    p {
-      margin: 0 0 12px;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      overflow-x: auto;
-      white-space: nowrap;
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-      padding: 10px 12px;
-    }
-
-    nav a {
-      color: var(--navy);
-      font-weight: 700;
-      text-decoration: none;
-      padding: 7px 9px;
-    }
-
-    main {
-      padding: 22px 16px 48px;
-    }
-
-    section {
-      margin-top: 34px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 2px 8px rgba(20, 48, 63, 0.04);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-    }
-
-    .notice {
-      background: #fff8e8;
-      border-left: 5px solid var(--gold);
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 4px 6px 0 0;
-      padding: 4px 11px;
-      border: 1px solid #ffffff55;
-      border-radius: 99px;
-      background: #ffffff20;
-      font-size: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 4px 4px 0 0;
-      padding: 9px 12px;
-      background: var(--navy);
-      border-radius: 9px;
-      color: var(--white);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .btn.alt {
-      background: var(--sky);
-      color: var(--navy);
-    }
-
-    .flow-step {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .flow-step:last-child {
-      border-bottom: 0;
-    }
-
-    .flow-step b {
-      color: var(--blue);
-    }
-
-    details {
-      margin: 10px 0;
-      padding: 12px 14px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-    }
-
-    summary {
-      color: var(--navy);
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    ul,
-    ol {
-      margin: 8px 0;
-      padding-left: 22px;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      min-width: 660px;
-      border-collapse: collapse;
-      background: var(--white);
-    }
-
-    th,
-    td {
-      padding: 11px;
-      border: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: var(--sky);
-      color: var(--navy);
-    }
-
-    .check label {
-      display: block;
-      padding: 8px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .check input {
-      width: 18px;
-      height: 18px;
-      margin-right: 8px;
-      vertical-align: -3px;
-    }
-
-    footer {
-      padding: 22px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 13px;
-    }
-  </style>
 </head>
 
 <body>
-  <header>
-    <div>
-      <h1>中級科目 1<br>人工智慧技術應用與規劃</h1>
-      <p>從企業需求出發，完成資料、技術、評估、治理到上線維運的 AI 導入決策。</p>
-      <span class="tag">中級必考</span>
-      <span class="tag">情境題</span>
-      <span class="tag">技術選型</span>
-      <span class="tag">治理與風險</span>
+  <nav class="site-nav" aria-label="主要導覽">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">iPAS 備考站</a>
+
+    <div class="nav-links">
+      <a href="../index.html">首頁</a>
+      <a href="beginner-ai-basics.html">初級 AI 基礎</a>
+      <a href="beginner-generative-ai.html">初級生成式 AI</a>
+      <a href="intermediate-ai-planning.html aria-current="page"">中級技術規劃</a>
+      <a href="intermediate-machine-learning.html" >中級機器學習</a>
+      <a href="resources.html">官方資源</a>
     </div>
-  </header>
+  </div>
+</nav>
+  
+<header class="page-header">
+  <div>
+    <h1>中級科目 1：人工智慧技術應用與規劃</h1>
+    <p>從企業需求出發，完成資料、技術、評估、治理到上線維運的 AI 導入決策。</p>
+
+    <nav class="section-nav" aria-label="本頁章節">
+      <a href="#map">範圍地圖</a>
+      <a href="#decision">決策流程</a>
+      <a href="#tech">技術選型</a>
+      <a href="#evaluation">導入評估</a>
+      <a href="#governance">治理風險</a>
+      <a href="#feynman">費曼卡</a>
+      <a href="#practice">刷題</a>
+    </nav>
+  </div>
+</header>
 
   <nav>
     <a href="../index.html">首頁</a>

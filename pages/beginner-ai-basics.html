@@ -271,4 +271,558 @@
     .table-wrap {
       overflow-x: auto;
       border: 1px solid var(--line);
-      border-radius: 
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: #217a50;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 4px 4px 0 0;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">iPAS 備考站</a>
+
+      <div class="nav-links">
+        <a href="../index.html">首頁</a>
+        <a href="beginner-ai-basics.html" aria-current="page">初級 AI 基礎</a>
+        <a href="beginner-generative-ai.html">初級生成式 AI</a>
+        <a href="intermediate-ai-planning.html">中級技術規劃</a>
+        <a href="intermediate-machine-learning.html">中級機器學習</a>
+        <a href="resources.html">官方資源</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>初級科目 1<br>人工智慧基礎概論</h1>
+
+      <p>
+        建立 AI、資料、機器學習、生成式 AI 與治理的基礎地圖。
+        學習目標是：看懂題目在問什麼、分辨相近概念，並能用白話清楚解釋。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">初級第 4 梯</span>
+        <span class="tag">11 / 7</span>
+        <span class="tag">AI 基礎</span>
+        <span class="tag">資料與治理</span>
+        <span class="tag">費曼學習法</span>
+      </div>
+
+      <nav class="section-nav" aria-label="本頁章節">
+        <a href="#map">範圍地圖</a>
+        <a href="#data">資料基礎</a>
+        <a href="#ml">機器學習</a>
+        <a href="#ai-types">AI 類型</a>
+        <a href="#ethics">倫理治理</a>
+        <a href="#feynman">費曼卡</a>
+        <a href="#practice">刷題方法</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="map">
+      <h2>考科範圍地圖</h2>
+
+      <div class="notice">
+        <b>準備原則：</b>
+        初級考的是理解與應用，不要把它當成名詞背誦。
+        每個主題至少能回答四件事：它是什麼、為什麼重要、在哪種情境使用、容易和什麼概念混淆。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <h3>AI 基本概念</h3>
+          <p>理解人工智慧、機器學習、深度學習的關係，以及 AI 在企業與日常生活的應用。</p>
+        </article>
+
+        <article class="card">
+          <h3>資料與資料治理</h3>
+          <p>認識資料類型、資料品質、資料生命週期、個資、資料安全與資料使用責任。</p>
+        </article>
+
+        <article class="card">
+          <h3>機器學習基礎</h3>
+          <p>分辨監督式、非監督式與強化學習；理解訓練、驗證、測試與模型泛化。</p>
+        </article>
+
+        <article class="card">
+          <h3>生成式 AI 概念</h3>
+          <p>了解鑑別式與生成式 AI 的差異，並知道生成內容可能出現幻覺、偏誤與著作權風險。</p>
+        </article>
+
+        <article class="card">
+          <h3>AI 導入思維</h3>
+          <p>知道 AI 導入應從問題與資料出發，而不是先選熱門工具；同時考慮成本、效益與可行性。</p>
+        </article>
+
+        <article class="card">
+          <h3>倫理與治理</h3>
+          <p>掌握公平性、透明性、隱私、安全、人類監督與責任歸屬等基本原則。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>資料基礎：AI 的原料</h2>
+
+      <div class="card flow">
+        <div class="flow-row">
+          <div class="flow-title">資料蒐集</div>
+          <p>先確認資料來源是否合法、取得目的是否明確，以及蒐集的資料是否真的能回答業務問題。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">資料清理</div>
+          <p>處理缺失值、重複值、格式不一致與明顯錯誤。資料品質不好，模型可能學到錯誤規則。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">資料整合</div>
+          <p>整合不同系統時，要統一欄位定義、時間格式與資料標準，避免同一概念有不同意義。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">資料分析</div>
+          <p>透過統計、圖表與探索分析理解資料分布、異常與關聯，先理解資料再建立模型。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">資料治理</div>
+          <p>管理資料權限、品質、版本、保存期限、隱私與使用紀錄，讓資料可以安全且負責任地使用。</p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead>
+            <tr>
+              <th>概念</th>
+              <th>白話解釋</th>
+              <th>考題辨識線索</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>結構化資料</td>
+              <td>欄位固定、可放入表格或資料庫的資料，例如年齡、金額、日期。</td>
+              <td>表格、欄位、資料庫、數值、日期。</td>
+            </tr>
+            <tr>
+              <td>非結構化資料</td>
+              <td>沒有固定欄位格式的資料，例如文章、語音、圖片、影片。</td>
+              <td>文字、影像、聲音、影片、文件內容。</td>
+            </tr>
+            <tr>
+              <td>資料品質</td>
+              <td>資料是否正確、完整、一致、及時且符合使用目的。</td>
+              <td>缺失值、重複資料、格式不一、錯誤資料。</td>
+            </tr>
+            <tr>
+              <td>資料偏誤</td>
+              <td>資料沒有代表所有應被服務的族群，或歷史紀錄本身帶有不公平。</td>
+              <td>特定族群樣本不足、不公平結果、歷史歧視。</td>
+            </tr>
+            <tr>
+              <td>個人資料保護</td>
+              <td>只在必要範圍內蒐集與使用資料，妥善管理權限、目的與保存期限。</td>
+              <td>敏感資料、未授權使用、外洩、最小必要原則。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ml">
+      <h2>機器學習：讓模型從資料找規律</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>監督式學習</h3>
+          <p>
+            有標準答案的資料。模型從已標示的案例學習，例如用已知「詐欺／非詐欺」交易預測新交易。
+          </p>
+          <p><b>線索：</b>標籤、分類、預測、目標值。</p>
+        </article>
+
+        <article class="card">
+          <h3>非監督式學習</h3>
+          <p>
+            沒有標準答案，模型自行找相似群體或資料結構，例如依購買行為進行客戶分群。
+          </p>
+          <p><b>線索：</b>無標籤、分群、相似性、找規律。</p>
+        </article>
+
+        <article class="card">
+          <h3>強化學習</h3>
+          <p>
+            透過嘗試行動、取得獎勵或懲罰，逐步學習策略，例如遊戲、機器人控制或動態決策。
+          </p>
+          <p><b>線索：</b>代理人、環境、獎勵、連續決策。</p>
+        </article>
+
+        <article class="card">
+          <h3>深度學習</h3>
+          <p>
+            使用多層神經網路處理複雜模式，常見於影像、語音與自然語言等大量非結構化資料。
+          </p>
+          <p><b>線索：</b>神經網路、多層、影像、語音、文本。</p>
+        </article>
+      </div>
+
+      <div class="card flow" style="margin-top:16px">
+        <div class="flow-row">
+          <div class="flow-title">訓練集</div>
+          <p>給模型學習規則的資料。模型在這裡調整內部參數。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">驗證集</div>
+          <p>用於比較模型、選擇設定與調整超參數；不能把它當成最後的成績單。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">測試集</div>
+          <p>保留到最後，模擬模型面對新資料的能力，用來評估泛化表現。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">泛化能力</div>
+          <p>模型不只在訓練資料表現好，也能對未見過的新資料做出合理預測的能力。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-types">
+      <h2>AI 類型：不要混淆鑑別與生成</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>類型</th>
+              <th>主要工作</th>
+              <th>例子</th>
+              <th>題目判斷方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>鑑別式 AI</td>
+              <td>判斷、分類或預測既有類別與數值。</td>
+              <td>判斷郵件是不是垃圾信、預測是否違約。</td>
+              <td>題目問「是哪一類、是否發生、預測多少」。</td>
+            </tr>
+            <tr>
+              <td>生成式 AI</td>
+              <td>依提示或輸入內容，生成新的文字、圖片、聲音、程式碼等。</td>
+              <td>撰寫摘要、生成圖片、回答問題、產生程式碼。</td>
+              <td>題目問「產生、撰寫、摘要、創作、對話」。</td>
+            </tr>
+            <tr>
+              <td>自然語言處理</td>
+              <td>處理人類語言，例如分類、翻譯、摘要、問答與情緒分析。</td>
+              <td>客服文字分類、合約摘要、聊天機器人。</td>
+              <td>文字、語意、句子、文件、對話。</td>
+            </tr>
+            <tr>
+              <td>電腦視覺</td>
+              <td>理解影像與影片內容，例如分類、偵測、辨識與分割。</td>
+              <td>產品瑕疵檢測、人臉辨識、影像分類。</td>
+              <td>照片、鏡頭、影像、物件、瑕疵。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ethics">
+      <h2>AI 倫理與治理：題目常問的風險</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>公平性</h3>
+          <p>避免模型因資料偏誤，對特定族群造成不合理或不平等的結果。</p>
+        </article>
+
+        <article class="card">
+          <h3>透明性</h3>
+          <p>讓使用者知道何時正在使用 AI，並在重要決策中提供可理解的說明或申覆方式。</p>
+        </article>
+
+        <article class="card">
+          <h3>隱私與安全</h3>
+          <p>保護個人資料與機密資料，管理存取權限，避免未授權蒐集、外洩或濫用。</p>
+        </article>
+
+        <article class="card">
+          <h3>人類監督</h3>
+          <p>在高風險情境保留人工覆核、例外處理、停止使用與責任歸屬機制。</p>
+        </article>
+
+        <article class="card">
+          <h3>可解釋性</h3>
+          <p>在需要說明的決策中，讓人能理解模型的主要依據、限制與可能錯誤。</p>
+        </article>
+
+        <article class="card">
+          <h3>責任治理</h3>
+          <p>記錄資料、模型、版本、使用目的與維運責任，出現問題時能追查與改善。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="feynman">
+      <h2>費曼教學卡：閉卷解釋 60 秒</h2>
+
+      <details>
+        <summary>人工智慧、機器學習、深度學習有什麼關係？</summary>
+        <p>
+          <b>白話：</b>人工智慧是最大的範圍，目標是讓系統表現出類似智慧的能力；
+          機器學習是 AI 的一種方法，讓系統從資料學規則；
+          深度學習則是機器學習的一部分，使用多層神經網路處理更複雜的模式。
+        </p>
+      </details>
+
+      <details>
+        <summary>過擬合是什麼？</summary>
+        <p>
+          <b>白話：</b>模型把練習題背得太熟，訓練資料表現很好，但遇到新資料就變差。
+          <b>線索：</b>訓練成績高、測試成績低、模型太複雜或資料太少。
+        </p>
+      </details>
+
+      <details>
+        <summary>資料品質為什麼比模型複雜度重要？</summary>
+        <p>
+          <b>白話：</b>模型像廚師，資料像食材。食材錯誤、不完整或帶偏見，再厲害的廚師也難做出可靠成果。
+          所以先清理、驗證與治理資料，再討論模型。
+        </p>
+      </details>
+
+      <details>
+        <summary>生成式 AI 的幻覺是什麼？</summary>
+        <p>
+          <b>白話：</b>模型的回答看起來流暢合理，但內容可能不正確、沒有依據或虛構來源。
+          <b>改善：</b>要求引用來源、使用可信文件檢索、設定人工審核，不能把回答直接當作事實。
+        </p>
+      </details>
+
+      <details>
+        <summary>為什麼 AI 導入需要人類監督？</summary>
+        <p>
+          因為模型可能錯誤、偏誤或遇到訓練時沒見過的情況。尤其涉及醫療、金融、招募、
+          安全或權益時，應保留人工覆核、申覆與停止使用的機制。
+        </p>
+      </details>
+    </section>
+
+    <section id="practice">
+      <h2>刷題方法與今日任務</h2>
+
+      <div class="grid">
+        <article class="card">
+          <h3>每題三問</h3>
+          <ol>
+            <li>題目真正問的是定義、流程、技術選擇還是風險？</li>
+            <li>關鍵字對應哪個概念？例如「無標籤」常對應分群。</li>
+            <li>其他選項錯在哪裡？要能說出排除原因。</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h3>錯題紀錄格式</h3>
+          <p>
+            題號｜主題｜我選的答案｜正確概念｜錯誤原因｜
+            60 秒白話解釋｜下次複習日。
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>複習節奏</h3>
+          <p>
+            當天整理錯題；隔天口述一次；一週後再做相似題。
+            若仍講不清楚，回到官方學習指引補強，而不是只重背答案。
+          </p>
+        </article>
+      </div>
+
+      <div class="checklist" style="margin-top:16px">
+        <label>
+          <input type="checkbox">
+          用 60 秒解釋「監督式學習與非監督式學習」的差異
+        </label>
+
+        <label>
+          <input type="checkbox">
+          做 15 至 25 題初級 AI 基礎題，逐題寫出理由
+        </label>
+
+        <label>
+          <input type="checkbox">
+          完成 3 張費曼教學卡：過擬合、資料品質、AI 倫理
+        </label>
+
+        <label>
+          <input type="checkbox">
+          複習昨天的錯題，不看筆記說出正確概念
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>官方資源</h2>
+
+      <div class="card">
+        <p>
+          本頁是個人備考整理；考試日期、範圍、規則、學習指引與勘誤，
+          請以 iPAS 官方最新資料為準。
+        </p>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
+          target="_blank" rel="noopener">
+          學習指引、樣題、公告試題
+        </a>
+
+        <a class="btn"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/downloads"
+          target="_blank" rel="noopener">
+          簡章與評鑑內容範圍
+        </a>
+
+        <a class="btn alt"
+          href="https://ipd.nat.gov.tw/ipas/certification/AIAP/news"
+          target="_blank" rel="noopener">
+          最新消息與勘誤
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    iPAS AI 應用規劃師｜初級科目 1：人工智慧基礎概論
+  </footer>
+</body>
+</html>

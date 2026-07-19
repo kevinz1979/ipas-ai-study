@@ -1,98 +1,486 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <link rel="stylesheet" href="../assets/style.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f3d5e">
+  <meta name="description" content="iPAS AI 應用規劃師中級科目一：人工智慧技術應用與規劃備考頁面。">
   <title>中級 AI 技術應用與規劃｜iPAS AI 應用規劃師</title>
+
+  <style>
+    :root {
+      --navy: #0f3d5e;
+      --blue: #176b87;
+      --blue-dark: #0d536d;
+      --sky: #e8f4f8;
+      --gold: #f3b33d;
+      --ink: #17212b;
+      --muted: #52616b;
+      --line: #d7e2e8;
+      --surface: #ffffff;
+      --background: #f4f8fa;
+      --notice: #fff8e8;
+      --content-width: 1080px;
+      --radius: 16px;
+      --shadow: 0 4px 18px rgba(15, 61, 94, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont,
+        "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: var(--content-width);
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 8px 16px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: var(--sky);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 46px 20px 38px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+    }
+
+    .hero-inner,
+    main {
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.22;
+    }
+
+    .hero p {
+      max-width: 790px;
+      margin: 0;
+      font-size: 17px;
+      opacity: 0.96;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 22px;
+      padding: 4px 0;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover {
+      background: #ffffff;
+      color: var(--navy);
+    }
+
+    main {
+      padding: 26px 16px 56px;
+    }
+
+    section {
+      margin-top: 38px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 19px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+
+    .notice {
+      padding: 15px 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 10px;
+      background: var(--notice);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .flow-row:last-child {
+      border-bottom: 0;
+    }
+
+    .flow-title {
+      color: var(--blue-dark);
+      font-weight: 850;
+    }
+
+    .flow-row p {
+      margin: 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    details {
+      margin: 10px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .checklist {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist label {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      cursor: pointer;
+    }
+
+    .checklist label:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist input {
+      width: 19px;
+      height: 19px;
+      margin-right: 8px;
+      vertical-align: -4px;
+      accent-color: #217a50;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 4px 4px 0 0;
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #ffffff;
+    }
+
+    .btn.alt {
+      background: var(--sky);
+      color: var(--navy);
+    }
+
+    footer {
+      padding: 24px 16px 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px 12px;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 32px 16px 30px;
+      }
+
+      main {
+        padding: 20px 12px 46px;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <nav class="site-nav" aria-label="主要導覽">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">iPAS 備考站</a>
+    <div class="nav-inner">
+      <a class="brand" href="../index.html">iPAS 備考站</a>
 
-    <div class="nav-links">
-      <a href="../index.html">首頁</a>
-      <a href="beginner-ai-basics.html">初級 AI 基礎</a>
-      <a href="beginner-generative-ai.html">初級生成式 AI</a>
-      <a href="intermediate-ai-planning.html aria-current="page"">中級技術規劃</a>
-      <a href="intermediate-machine-learning.html" >中級機器學習</a>
-      <a href="resources.html">官方資源</a>
+      <div class="nav-links">
+        <a href="../index.html">首頁</a>
+        <a href="beginner-ai-basics.html">初級 AI 基礎</a>
+        <a href="beginner-generative-ai.html">初級生成式 AI</a>
+        <a href="intermediate-ai-planning.html" aria-current="page">中級技術規劃</a>
+        <a href="intermediate-machine-learning.html">中級機器學習</a>
+        <a href="resources.html">官方資源</a>
+      </div>
     </div>
-  </div>
-</nav>
-  
-<header class="page-header">
-  <div>
-    <h1>中級科目 1：人工智慧技術應用與規劃</h1>
-    <p>從企業需求出發，完成資料、技術、評估、治理到上線維運的 AI 導入決策。</p>
-
-    <nav class="section-nav" aria-label="本頁章節">
-      <a href="#map">範圍地圖</a>
-      <a href="#decision">決策流程</a>
-      <a href="#tech">技術選型</a>
-      <a href="#evaluation">導入評估</a>
-      <a href="#governance">治理風險</a>
-      <a href="#feynman">費曼卡</a>
-      <a href="#practice">刷題</a>
-    </nav>
-  </div>
-</header>
-
-  <nav>
-    <a href="../index.html">首頁</a>
-    <a href="#map">範圍地圖</a>
-    <a href="#decision">決策流程</a>
-    <a href="#tech">技術選型</a>
-    <a href="#evaluation">導入評估</a>
-    <a href="#governance">治理風險</a>
-    <a href="#feynman">費曼卡</a>
-    <a href="#practice">刷題</a>
-    <a href="#official">官方資源</a>
   </nav>
 
-  <main>
-    <div class="notice">
-      <b>考場核心：</b>
-      不要先看到 AI 名詞就選模型。先釐清企業要解決的問題、可取得的資料、成功標準、
-      導入限制與風險，再選合適技術。最好的方案不一定是最複雜的模型，而是能安全、
-      可衡量、可維運且符合需求的方案。
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>中級科目 1<br>人工智慧技術應用與規劃</h1>
+
+      <p>
+        從企業需求出發，依序判斷資料可行性、選擇技術、規劃 PoC、
+        設定成效指標、處理治理風險，最後思考如何部署與長期維運。
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">中級必考</span>
+        <span class="tag">11 / 14</span>
+        <span class="tag">情境題</span>
+        <span class="tag">技術選型</span>
+        <span class="tag">AI 治理</span>
+      </div>
+
+      <nav class="section-nav" aria-label="本頁章節">
+        <a href="#map">範圍地圖</a>
+        <a href="#decision">決策流程</a>
+        <a href="#tech">技術選型</a>
+        <a href="#poc">PoC 與指標</a>
+        <a href="#governance">治理風險</a>
+        <a href="#feynman">費曼卡</a>
+        <a href="#practice">刷題方法</a>
+      </nav>
     </div>
+  </header>
 
+  <main>
     <section id="map">
-      <h2>科目範圍地圖</h2>
+      <h2>考科範圍地圖</h2>
 
-      <div class="grid">
+      <div class="notice">
+        <b>中級答題核心：</b>
+        不要先挑最熱門的 AI 技術。題目應先看「要解決什麼問題、手上有什麼資料、
+        有哪些限制、成功如何衡量、風險怎麼控制」。最合理的答案通常是兼顧效益、
+        可行性、安全與可維運性的方案。
+      </div>
+
+      <div class="grid" style="margin-top:16px">
         <article class="card">
           <h3>需求與問題定義</h3>
-          <p>辨識利害關係人、業務痛點、使用者情境、成功條件、限制與可衡量 KPI。</p>
+          <p>釐清使用者、業務痛點、目標、限制與成功條件，將模糊需求轉成可衡量問題。</p>
         </article>
 
         <article class="card">
           <h3>資料與可行性</h3>
-          <p>確認資料來源、品質、標註、代表性、隱私、授權與資料治理是否足以支撐需求。</p>
+          <p>盤點資料來源、品質、代表性、標註、個資、權限、更新頻率與既有系統限制。</p>
         </article>
 
         <article class="card">
-          <h3>AI 技術選型</h3>
-          <p>依任務選擇預測、分類、分群、自然語言處理、電腦視覺、生成式 AI、RAG 或規則系統。</p>
+          <h3>技術選型</h3>
+          <p>依資料與任務選擇分類、迴歸、分群、NLP、電腦視覺、生成式 AI、RAG 或規則系統。</p>
         </article>
 
         <article class="card">
-          <h3>開發與驗證</h3>
-          <p>資料切分、基準模型、評估指標、PoC、使用者測試、偏誤檢查與可解釋性。</p>
+          <h3>PoC 與評估</h3>
+          <p>以小規模驗證技術可行性、業務價值、使用者採納與風險；設定技術與業務指標。</p>
         </article>
 
         <article class="card">
-          <h3>部署與維運</h3>
-          <p>系統整合、版本管理、權限、效能、監控、漂移偵測、再訓練與回退機制。</p>
+          <h3>導入與維運</h3>
+          <p>規劃系統整合、權限、版本、監控、資料與概念漂移、再訓練、回退與責任窗口。</p>
         </article>
 
         <article class="card">
-          <h3>治理與風險</h3>
-          <p>個資、資安、著作權、偏誤、公平性、透明性、人類監督、責任歸屬與稽核。</p>
+          <h3>倫理與治理</h3>
+          <p>處理隱私、資安、偏誤、公平性、透明性、可解釋性、人類監督與稽核追蹤。</p>
         </article>
       </div>
     </section>
@@ -100,133 +488,145 @@
     <section id="decision">
       <h2>AI 導入決策流程</h2>
 
-      <div class="card">
-        <div class="flow-step">
-          <b>1｜定義業務問題</b><br>
-          先寫清楚「誰遇到什麼問題、要改善什麼、改善多少算成功」。
-          例如：客服回覆慢，不等於立刻導入聊天機器人；還要定義回覆時間、正確率、轉人工率與客戶滿意度。
+      <div class="card flow">
+        <div class="flow-row">
+          <div class="flow-title">1. 定義問題</div>
+          <p>寫清楚誰遇到什麼問題、目前流程的痛點是什麼、要改善多少算成功。不要只寫「導入 AI 提升效率」。</p>
         </div>
 
-        <div class="flow-step">
-          <b>2｜確認資料與限制</b><br>
-          檢查是否有足夠、合法、具代表性的資料，以及資料是否能連續更新。
-          同時確認預算、時程、資安、法規、既有系統與人力限制。
+        <div class="flow-row">
+          <div class="flow-title">2. 盤點資料</div>
+          <p>確認資料是否存在、是否合法、完整且具代表性；也要看是否有標籤、是否能持續更新與是否有權限使用。</p>
         </div>
 
-        <div class="flow-step">
-          <b>3｜評估非 AI 與 AI 方案</b><br>
-          先考慮流程改善、搜尋、規則引擎或人工標準化是否已足夠；
-          只有在 AI 能帶來明確效益時，才進一步選擇合適模型。
+        <div class="flow-row">
+          <div class="flow-title">3. 評估替代方案</div>
+          <p>先問流程改善、搜尋系統、規則引擎、表單標準化或人工訓練是否已足夠。不是每個問題都需要 AI。</p>
         </div>
 
-        <div class="flow-step">
-          <b>4｜選技術與設計 PoC</b><br>
-          把問題對應到分類、迴歸、分群、NLP、電腦視覺、生成式 AI 或 RAG；
-          以小規模驗證 PoC 檢驗資料、模型與使用流程是否可行。
+        <div class="flow-row">
+          <div class="flow-title">4. 選擇技術</div>
+          <p>依任務、資料型態、即時性、成本、可解釋性與風險，選擇最合適的模型或系統架構。</p>
         </div>
 
-        <div class="flow-step">
-          <b>5｜設定成效指標</b><br>
-          技術指標不夠，還要有業務指標與風險指標。
-          例如客服系統可同時衡量回答正確率、平均處理時間、人工轉接率、申訴率與敏感資訊外洩事件。
+        <div class="flow-row">
+          <div class="flow-title">5. 進行 PoC</div>
+          <p>先小規模驗證資料、模型、系統整合與使用流程；確認技術可行且具業務價值後，再逐步擴大。</p>
         </div>
 
-        <div class="flow-step">
-          <b>6｜部署、監控與治理</b><br>
-          規劃模型版本、權限、日誌、監控告警、人工覆核、再訓練、異常回退與責任窗口。
+        <div class="flow-row">
+          <div class="flow-title">6. 部署與治理</div>
+          <p>設定權限、日誌、模型版本、監控、人工覆核、例外處理、再訓練與異常回退，讓系統能安全長期運作。</p>
         </div>
       </div>
     </section>
 
     <section id="tech">
-      <h2>情境到技術的選擇</h2>
+      <h2>從情境選擇技術</h2>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>情境線索</th>
-              <th>優先技術方向</th>
-              <th>選擇理由</th>
-              <th>常見風險或補充</th>
+              <th>合適技術方向</th>
+              <th>原因</th>
+              <th>仍需注意</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
-              <td>依歷史案件預測是否違約</td>
+              <td>根據過去案件預測是否違約、是否詐欺</td>
               <td>監督式分類</td>
-              <td>有過去標籤，可預測新案件的類別。</td>
-              <td>注意類別不平衡、偏誤與漏判成本。</td>
+              <td>有歷史標籤，可學習新案件屬於哪個類別。</td>
+              <td>類別不平衡、偏誤、誤判與漏判成本。</td>
             </tr>
-
             <tr>
-              <td>預測下個月銷售額</td>
+              <td>預測銷售額、需求量、價格</td>
               <td>迴歸或時間序列預測</td>
-              <td>目標是連續數值，且可能具有時間趨勢。</td>
-              <td>避免用未來資料造成資料洩漏。</td>
+              <td>目標是連續數值，且可能有季節性或時間趨勢。</td>
+              <td>避免未來資料洩漏，監控市場條件改變。</td>
             </tr>
-
             <tr>
-              <td>將客戶依行為分成族群</td>
+              <td>依行為將客戶分眾</td>
               <td>非監督式分群</td>
-              <td>通常沒有既定標籤，目標是發現相似群體。</td>
-              <td>分群後需要業務人員驗證群體是否有意義。</td>
+              <td>通常沒有既定答案，目標是找出相似群體。</td>
+              <td>分群後需由業務人員確認群體是否有意義。</td>
             </tr>
-
             <tr>
-              <td>從合約、客服紀錄擷取主題或問答</td>
-              <td>NLP、LLM、RAG</td>
-              <td>資料主要是文字，需要理解、分類、摘要或檢索。</td>
-              <td>注意幻覺、敏感資料、來源品質與人工覆核。</td>
+              <td>理解客服紀錄、合約、意見回饋</td>
+              <td>NLP 或 LLM</td>
+              <td>主要資料是文字，需要分類、摘要、擷取或問答。</td>
+              <td>幻覺、敏感資料、來源品質與人工查核。</td>
             </tr>
-
             <tr>
-              <td>辨識產品瑕疵、讀取影像內容</td>
+              <td>辨識影像瑕疵、產品、物件或場景</td>
               <td>電腦視覺</td>
-              <td>輸入資料是影像，目標是分類、偵測或分割。</td>
-              <td>注意光線、角度、樣本代表性與誤判成本。</td>
+              <td>主要資料是影像，目標是分類、偵測或分割。</td>
+              <td>光線、角度、拍攝設備、樣本代表性與誤判成本。</td>
             </tr>
-
             <tr>
-              <td>依內部文件回答員工問題</td>
-              <td>檢索增強生成 RAG</td>
-              <td>需要以公司文件為依據回答，並希望降低憑空生成。</td>
-              <td>仍要檢查文件是否更新、權限是否正確與回答是否有引用依據。</td>
+              <td>依公司內部文件回答問題</td>
+              <td>RAG</td>
+              <td>需要使用常更新的可信文件，並希望回答有依據。</td>
+              <td>文件權限、過期資料、檢索品質、引用與人工覆核。</td>
+            </tr>
+            <tr>
+              <td>規則明確、例外少、需高度可解釋</td>
+              <td>規則系統或流程自動化</td>
+              <td>不一定需要複雜 AI；規則透明、成本較低且較易維護。</td>
+              <td>規則太多時維護成本上升，例外情況需持續管理。</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <section id="evaluation">
-      <h2>PoC 與導入成效評估</h2>
+    <section id="poc">
+      <h2>PoC 與成效指標</h2>
 
       <div class="grid">
         <article class="card">
           <h3>技術可行性</h3>
-          <p>資料品質是否足夠？模型是否達到最低門檻？延遲、成本與系統相容性是否可接受？</p>
+          <p>資料品質夠嗎？模型表現是否達到最低門檻？反應時間、成本與既有系統整合是否可接受？</p>
         </article>
 
         <article class="card">
           <h3>業務價值</h3>
-          <p>是否能降低工時、錯誤或成本？是否改善營收、轉換率、服務品質或決策速度？</p>
+          <p>是否能降低工時、錯誤或成本？是否改善營收、轉換率、客戶滿意度或決策速度？</p>
         </article>
 
         <article class="card">
           <h3>使用者採納</h3>
-          <p>使用者是否理解建議？流程是否增加負擔？人員是否能在高風險情境中覆核或拒絕模型建議？</p>
+          <p>使用者能否理解與信任結果？流程是否更簡單？高風險結果能否由人員覆核或提出異議？</p>
         </article>
 
         <article class="card">
           <h3>風險可接受性</h3>
-          <p>隱私、資安、偏誤、著作權與錯誤決策風險是否已被辨識、降低、監測並建立責任機制？</p>
+          <p>隱私、資安、偏誤、著作權與錯誤決策風險，是否已有預防、偵測、回應與責任機制？</p>
         </article>
       </div>
 
+      <div class="card flow" style="margin-top:16px">
+        <div class="flow-row">
+          <div class="flow-title">技術指標</div>
+          <p>例如分類的 Precision、Recall、F1-score；迴歸的 MAE、RMSE；生成式 AI 的答案正確性、引用完整性與安全違規率。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">業務指標</div>
+          <p>例如平均處理時間、人工轉接率、客訴率、成交率、成本節省、處理量或使用者滿意度。</p>
+        </div>
+
+        <div class="flow-row">
+          <div class="flow-title">風險指標</div>
+          <p>例如敏感資料外洩事件、錯誤率、特定群體的差異、無來源回答比例、人工覆核失敗率。</p>
+        </div>
+      </div>
+
       <details>
-        <summary>例題思路：模型準確率高，為什麼仍可能不適合上線？</summary>
-        <p>因為準確率不能代表所有事情：資料可能不具代表性、模型可能對特定族群不公平、推論速度可能太慢、誤判成本可能很高，也可能涉及個資或缺少人工覆核。題目若問「是否可上線」，要同時看技術、業務、使用者與治理風險。</p>
+        <summary>題目說「模型準確率很高」，為什麼仍不能直接全面上線？</summary>
+        <p>準確率只是技術表現之一。還要確認資料是否具代表性、不同群體是否公平、誤判成本是否可接受、反應時間與成本是否符合需求、是否有隱私風險，以及使用者是否能理解與覆核結果。</p>
       </details>
     </section>
 
@@ -236,95 +636,117 @@
       <div class="grid">
         <article class="card">
           <h3>隱私與個資</h3>
-          <p>只蒐集必要資料；確認目的、權限、保存期間與第三方處理方式；避免把敏感資料直接送入未核准的外部模型。</p>
+          <p>只處理必要資料，確認合法依據、使用目的、存取權限、保存期限與第三方處理方式。</p>
         </article>
 
         <article class="card">
           <h3>偏誤與公平性</h3>
-          <p>檢查訓練資料是否忽略某些族群、標註是否帶偏見，以及模型結果是否造成不合理差別待遇。</p>
+          <p>檢查資料是否忽略特定族群，模型結果是否造成不合理差別待遇，並評估改善與申覆機制。</p>
         </article>
 
         <article class="card">
           <h3>透明與可解釋</h3>
-          <p>讓使用者知道何時正在與 AI 互動；在高風險決策中提供可理解的理由、資料來源或人工申覆管道。</p>
+          <p>讓使用者知道何時使用 AI；重要決策應提供可理解理由、限制說明與人工協助方式。</p>
         </article>
 
         <article class="card">
-          <h3>資安與對抗風險</h3>
-          <p>管理帳號權限、API 金鑰、輸入輸出日誌與異常行為；生成式 AI 要特別防範提示注入與敏感資訊外洩。</p>
+          <h3>資安與權限</h3>
+          <p>保護帳號、API 金鑰、資料與模型；落實最小權限、日誌、異常監控與安全測試。</p>
         </article>
 
         <article class="card">
           <h3>人類監督</h3>
-          <p>高風險決策不宜完全自動化；設定人工覆核、升級處理、例外機制與停用／回退流程。</p>
+          <p>高風險情境不宜完全自動化；建立覆核、升級處理、例外、停止使用與責任歸屬流程。</p>
         </article>
 
         <article class="card">
           <h3>模型生命週期</h3>
-          <p>記錄資料與模型版本、部署時間、效能與異常；監控資料漂移和概念漂移，必要時再訓練或下線。</p>
+          <p>管理資料與模型版本，監控效能、資料漂移與概念漂移；必要時重新評估、再訓練或下線。</p>
         </article>
       </div>
     </section>
 
     <section id="feynman">
-      <h2>費曼教學卡：用白話講出決策</h2>
+      <h2>費曼教學卡：用白話說出決策</h2>
 
       <details>
-        <summary>PoC 是什麼？為什麼不能直接全面上線？</summary>
-        <p><b>白話：</b>PoC 是小範圍試做，用較低成本確認「這個想法能不能做、資料夠不夠、效果值不值得」。</p>
-        <p><b>原因：</b>全面上線會牽涉更多使用者、系統整合、資安、成本與錯誤影響；先做 PoC 可提早發現資料、流程與風險問題。</p>
-      </details>
-
-      <details>
-        <summary>RAG 與微調怎麼區分？</summary>
-        <p><b>RAG：</b>回答前先從文件庫找相關內容，再依找到的內容生成答案；適合知識常更新、需要引用內部文件的情境。</p>
-        <p><b>微調：</b>調整模型參數，使模型更符合特定任務、風格或格式；通常需要品質較高的訓練資料與更完整的評估。</p>
-        <p><b>考場判斷：</b>題目若強調「最新內部文件、檢索、引用來源」，優先想到 RAG。</p>
+        <summary>PoC 是什麼？為什麼不直接全面上線？</summary>
+        <p><b>白話：</b>PoC 是小範圍試做，先確認「做不做得出來、效果值不值得、風險能不能控制」。</p>
+        <p>全面上線前還要處理系統整合、使用者流程、資安、成本、責任與錯誤影響；PoC 可以較早發現問題並降低失敗成本。</p>
       </details>
 
       <details>
         <summary>資料漂移與概念漂移差在哪裡？</summary>
-        <p><b>資料漂移：</b>輸入資料的分布改變，例如客戶年齡、購買通路或影像拍攝環境改變。</p>
-        <p><b>概念漂移：</b>輸入與答案之間的關係改變，例如詐欺手法改變，原本的規則不再有效。</p>
-        <p><b>共同對策：</b>持續監控、重新評估、必要時更新資料與再訓練模型。</p>
+        <p><b>資料漂移：</b>輸入資料的樣貌改變，例如客戶來源、年齡分布或影像拍攝環境改變。</p>
+        <p><b>概念漂移：</b>輸入和答案的關係改變，例如詐欺手法變化，舊規律不再有效。</p>
+        <p><b>共同做法：</b>持續監控、重新評估，必要時更新資料、調整規則或再訓練模型。</p>
       </details>
 
       <details>
-        <summary>為什麼「最準的模型」不一定是最佳方案？</summary>
-        <p>因為實務還要考慮可解釋性、運算成本、反應時間、維護能力、資料取得、法規、使用者信任與錯誤造成的傷害。合適的方案必須在效能、風險與可行性間取得平衡。</p>
+        <summary>RAG 與微調要怎麼選？</summary>
+        <p><b>RAG：</b>回答前先從文件庫找資料，再依資料回答；適合內規、產品手冊、常更新知識與需要引用來源的情境。</p>
+        <p><b>微調：</b>調整模型參數，使模型更符合特定任務、格式或語氣；通常需要高品質訓練資料與更完整的評估。</p>
+      </details>
+
+      <details>
+        <summary>為什麼最準的模型不一定是最佳方案？</summary>
+        <p>實務還要看可解釋性、延遲、成本、維護能力、資料取得、法規、使用者信任與錯誤造成的傷害。最佳方案是能在效能、風險和可行性間取得平衡的方案。</p>
       </details>
     </section>
 
     <section id="practice">
       <h2>情境題刷題方法</h2>
 
-      <div class="card">
-        <ol>
-          <li><b>圈出目標：</b>要預測、分類、分群、擷取資訊、生成內容，還是最佳化流程？</li>
-          <li><b>圈出資料：</b>資料型態是表格、文字、影像還是文件？有沒有標籤？是否合法、完整、具代表性？</li>
-          <li><b>圈出限制：</b>是否要求即時、低成本、可解釋、保護個資、人工覆核或使用內部資料？</li>
-          <li><b>選技術：</b>選最能回應目標與限制的方案，而不是最熱門的技術。</li>
-          <li><b>選指標與治理：</b>依錯誤成本選評估指標，補上監控、權限、人類監督與風險控制。</li>
-        </ol>
+      <div class="grid">
+        <article class="card">
+          <h3>第一步：找目標</h3>
+          <p>題目要解決的是預測、分類、分群、影像辨識、文件問答、生成內容，還是流程改善？</p>
+        </article>
+
+        <article class="card">
+          <h3>第二步：看資料</h3>
+          <p>資料是表格、文字、影像還是文件？有沒有標籤？資料是否合法、完整、代表性足夠嗎？</p>
+        </article>
+
+        <article class="card">
+          <h3>第三步：看限制</h3>
+          <p>題目是否要求即時、低成本、可解釋、保護個資、使用內部文件或需要人工覆核？</p>
+        </article>
+
+        <article class="card">
+          <h3>第四步：選方案</h3>
+          <p>選最符合目標與限制的技術，並補上合適的評估指標、監控與治理措施。</p>
+        </article>
       </div>
 
-      <div class="card check" style="margin-top:14px">
-        <h3>今日最小任務</h3>
-        <label><input type="checkbox">用「需求 → 資料 → 技術 → 指標 → 風險」分析一個 AI 應用案例</label>
-        <label><input type="checkbox">完成 10 至 15 題中級科目 1 題目，逐題寫出排除其他選項的理由</label>
-        <label><input type="checkbox">將 3 個易混淆概念寫成費曼教學卡並閉卷口述</label>
-        <label><input type="checkbox">閱讀官方學習指引或公告試題，更新自己的錯題紀錄</label>
+      <div class="checklist" style="margin-top:16px">
+        <label>
+          <input type="checkbox">
+          用「需求 → 資料 → 技術 → 指標 → 風險」分析一個 AI 導入案例
+        </label>
+
+        <label>
+          <input type="checkbox">
+          完成 10 至 15 題中級科目 1 題目，逐題寫出排除其他選項的理由
+        </label>
+
+        <label>
+          <input type="checkbox">
+          用 60 秒解釋 PoC、RAG 與微調的差異
+        </label>
+
+        <label>
+          <input type="checkbox">
+          更新錯題紀錄：題號、錯因、正確規則、白話解釋、下次複習日
+        </label>
       </div>
     </section>
 
-    <section id="official">
+    <section>
       <h2>官方資源</h2>
 
       <div class="card">
-        <p>
-          此頁為個人備考整理。考試規則、評鑑範圍、日期、學習指引與勘誤，
-          請一律以 iPAS 官方最新資料為準。
-        </p>
+        <p>本頁是個人備考整理。考試範圍、規則、學習指引、勘誤與公告試題，請以 iPAS 官方最新資料為準。</p>
 
         <a class="btn"
           href="https://ipd.nat.gov.tw/ipas/certification/AIAP/learning-resources"
